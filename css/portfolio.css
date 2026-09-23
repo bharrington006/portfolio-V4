@@ -284,6 +284,7 @@ a:hover { color: var(--color-accent-700); }
    Only applies with JS (html.js, set in <head>); without JS the story is open. */
 .story { margin-top: 24px; }
 .js .project:not(.is-open) .story {
+  position: relative; /* contain the absolutely positioned .sr-only spans so overflow clips them */
   height: 0;
   margin-top: 0;
   overflow: hidden;
@@ -616,7 +617,7 @@ html:not(.js) .story-toggle { display: none; }
   font-size: 24px;
   margin: 0;
 }
-.info-card__hint {
+.info-card__body {
   margin: 0;
   font-size: 17px;
   color: color-mix(in srgb, var(--color-text) 80%, transparent);
