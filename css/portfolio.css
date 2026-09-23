@@ -618,8 +618,8 @@ html:not(.js) .story-toggle { display: none; }
 }
 .info-card__hint {
   margin: 0;
-  font-size: 14px;
-  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+  font-size: 17px;
+  color: color-mix(in srgb, var(--color-text) 80%, transparent);
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
