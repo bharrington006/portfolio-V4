@@ -1,0 +1,655 @@
+/* Portfolio — page layout and components for index.html.
+   Everything here is built on the tokens in style.css (var(--color-*), var(--font-*), …).
+   Sections: base → agent-readable helpers → header → intro → project sections → Konica Minolta
+   story → odds & ends → contact/resume → responsive. */
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-bg); }
+a { color: var(--color-accent); }
+a:hover { color: var(--color-accent-700); }
+
+@keyframes story-in {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.page {
+  min-height: 100vh;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* Muted body copy — the text color at reduced strength */
+.text-86 { color: color-mix(in srgb, var(--color-text) 86%, transparent); }
+.text-88 { color: color-mix(in srgb, var(--color-text) 88%, transparent); }
+
+/* Inline emphasis at the start of a paragraph ("Discovery:", "Push, don't pull:") */
+.lead-in {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+/* ── Agent-readable helpers ───────────────────────────────────────────────── */
+/* Text that is invisible on screen but stays in the page text, so AI agents,
+   search engines and screen readers get the context a sighted visitor infers
+   from layout (which region of the Venn a word sits in, what "A1" means…).
+   Never use display:none / [hidden] for this — that drops it from extraction. */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+  text-transform: none; /* don't inherit a kicker's uppercase — IDs like "block_in_box" must stay exact */
+}
+
+/* Real headings (h2–h4) and figcaptions that wear a label style (.kicker,
+   .figure-label). Cancels the h1–h6 / figcaption defaults from style.css so the
+   label class alone decides the look. Declared before every label class so their
+   own margins still win. */
+.heading-reset {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+}
+
+/* Lists used for structure only (map rows, subagent grid) */
+.map__rows,
+.subagents__grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ── Site header ──────────────────────────────────────────────────────────── */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 66px;
+}
+.site-header__brand {
+  margin-right: auto;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -0.01em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.site-header__updated {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-body);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--color-neutral-700);
+  white-space: nowrap;
+  margin: 0;
+}
+.site-header__nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.site-header__nav a {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--color-text);
+  text-decoration: none;
+}
+.site-header__nav a:hover { color: var(--color-accent-700); }
+
+/* ── Intro ────────────────────────────────────────────────────────────────── */
+.intro {
+  display: grid;
+  grid-template-columns: 296px minmax(0, 1fr);
+  gap: 44px;
+  align-items: start;
+  padding: 22px 0 26px;
+}
+.intro__text { padding-top: 6px; }
+.intro__text h1 {
+  font-size: 42px;
+  margin: 0 0 16px;
+  letter-spacing: -0.02em;
+}
+.intro__lead {
+  font-size: 19px;
+  line-height: 1.55;
+  margin: 0;
+  text-wrap: pretty;
+}
+
+/* ── Media frames ─────────────────────────────────────────────────────────── */
+/* A blueprint-bordered box that an <img> or <video> fills edge to edge.
+   Pair with an aspect modifier so the box holds its shape before media loads. */
+.media-frame {
+  position: relative;
+  isolation: isolate;
+  background: var(--color-neutral-300);
+  overflow: hidden;
+}
+.media-frame > img,
+.media-frame > video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.media-frame--portrait { aspect-ratio: 863 / 956; }
+.media-frame--arm      { aspect-ratio: 560 / 518; }
+.media-frame--cad      { aspect-ratio: 515 / 288; }
+.media-frame--4x3      { aspect-ratio: 4 / 3; }
+.media-frame--square   { aspect-ratio: 1 / 1; }
+
+/* Accent wash over a photograph (the system's duotone treatment).
+   Remove the class to show the image in its natural color. */
+.media-frame--duotone::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: var(--color-accent);
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.media-caption {
+  margin-top: 12px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+.media-caption--lg { font-size: 15px; }
+
+/* ── Project sections ─────────────────────────────────────────────────────── */
+.project { padding: 28px 0 30px; }
+
+.project__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 18px;
+}
+.project__header--spaced { margin-bottom: 28px; }
+
+.project__number {
+  width: 40px;
+  height: 40px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-accent-700);
+}
+
+.project__title {
+  font-size: 34px;
+  margin: 0;
+  letter-spacing: -0.015em;
+}
+
+/* Media on the left, short blurb on the right */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+.project__blurb {
+  font-size: 21px;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 26ch;
+  text-wrap: pretty;
+}
+.project__blurb--wide { max-width: none; }
+.project__blurb--wide p:last-child { margin-bottom: 0; }
+.project__blurb h3 { margin-bottom: calc(var(--space-2) + 10px); }
+
+/* Inline text styled like a subheading (h3), without breaking out of the paragraph flow */
+.inline-subheading {
+  font-family: var(--font-heading);
+  font-weight: var(--font-heading-weight);
+  font-size: 25px;
+  letter-spacing: -0.015em;
+}
+
+/* Left-column media stack: figure + per-policy link buttons */
+.split__media {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.policy-links__title { margin-bottom: 10px; }
+.policy-links__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.policy-links__row .btn { font-size: 20px; }
+
+/* Extra breathing room below the SO-101 policy buttons before the section divider */
+.hr--policy-gap { margin-top: calc(var(--space-4) + 20px); }
+
+/* Two- and three-up image grids */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+}
+.triple {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+/* ── Collapsible design story ─────────────────────────────────────────────── */
+/* Collapsed stories are clipped to zero height rather than display:none, so the
+   text is still in the page for agents, search engines and screen readers.
+   Only applies with JS (html.js, set in <head>); without JS the story is open. */
+.story { margin-top: 24px; }
+.js .project:not(.is-open) .story {
+  height: 0;
+  margin-top: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.js .project.is-open .story { animation: story-in 220ms ease-out both; }
+
+/* The in-progress stories open under a rule */
+.story--wip {
+  margin-top: 20px;
+  border-top: 1px solid var(--color-divider);
+  padding-top: 20px;
+}
+.story__kicker {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+  margin-bottom: 20px;
+}
+
+/* Toggle row: rule — button + label — rule. Needs JS, so hidden without it. */
+html:not(.js) .story-toggle { display: none; }
+.story-toggle {
+  display: flex;
+  align-items: center;
+  margin-top: 18px;
+}
+.story-toggle__rule {
+  flex: 1;
+  height: 1px;
+  background: var(--color-divider);
+}
+.story-toggle__control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  margin: 0 24px;
+}
+.story-toggle__btn {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  font: inherit;
+  background: transparent;
+  color: var(--color-accent-700);
+  cursor: pointer;
+}
+.story-toggle__btn:hover {
+  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  border-color: var(--color-accent);
+}
+.story-toggle__label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-neutral-700);
+}
+.story-toggle__label--lg { font-size: 15px; }
+
+/* Open/closed state is a class on the <section>; the button carries both
+   icons and both labels, and CSS shows the pair that matches. */
+.project.is-open .story-toggle__icon--closed,
+.project.is-open .story-toggle__label--closed,
+.project:not(.is-open) .story-toggle__icon--open,
+.project:not(.is-open) .story-toggle__label--open { display: none; }
+
+/* ── Konica Minolta ───────────────────────────────────────────────────────── */
+.km {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 48px;
+  align-items: center;
+}
+.km__process {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.process-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--color-divider);
+}
+.process-list__item {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+.process-list__num {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--color-accent-700);
+  padding-top: 3px;
+}
+.process-list__text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+.process-list__text .lead-in {
+  font-size: 16px;
+  letter-spacing: 0.01em;
+}
+
+/* Section labels: uppercase condensed, accent or muted */
+.kicker {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+.kicker--muted { color: var(--color-neutral-700); }
+.kicker--block { margin-bottom: 12px; }
+
+.body-copy {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.62;
+  text-wrap: pretty;
+}
+
+/* Figure 2.1 — Venn diagram */
+.km__figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.figure-label {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+  align-self: stretch;
+}
+.figure-label__num,
+.figure-label__title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.figure-label__num   { color: var(--color-accent-700); white-space: nowrap; }
+.figure-label__title { color: var(--color-neutral-700); }
+
+.venn {
+  position: relative;
+  width: 100%;
+  background: transparent;
+}
+.venn svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.venn__circle--1 { fill: color-mix(in srgb, var(--color-accent) 15%, transparent); stroke: var(--color-accent-700); }
+.venn__circle--2 { fill: oklch(0.72 0.12 25 / 0.22); stroke: oklch(0.60 0.13 25); }
+.venn__circle--3 { fill: color-mix(in srgb, var(--color-neutral-600) 16%, transparent); stroke: var(--color-neutral-600); }
+.venn__bu {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 3.04px;
+}
+.venn__bu--1 { fill: var(--color-accent-800); }
+.venn__bu--2 { fill: oklch(0.48 0.14 25); }
+.venn__bu--3 { fill: var(--color-neutral-800); }
+.venn__items {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 18px;
+  fill: color-mix(in srgb, var(--color-text) 78%, transparent);
+}
+.venn__core {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 19px;
+  fill: var(--color-accent-900);
+}
+
+/* Story rows: label in the left gutter, content in the 75% center column */
+.story-row {
+  display: grid;
+  grid-template-columns: 1fr 75% 1fr;
+  column-gap: 0;
+  row-gap: 20px;
+  padding: 9px 0;
+}
+.story-row--sec {
+  border-top: 1px solid var(--color-divider);
+  padding-top: 22px;
+  margin-top: 16px;
+}
+.story-row:not(.story-row--sec) > * { grid-column: 2; }
+.story-row:not(.story-row--sec) > .story-row__label { text-align: left; }
+.story-row__label { padding-top: 2px; }
+.story-row__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.story-row__body--tight { gap: 6px; }
+
+/* Figure 2.2 — job → Agentforce solution map */
+.map {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 22px;
+}
+.map__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.map-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+  align-items: stretch;
+}
+.map-row--head { align-items: end; }
+.map__head-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-text) 55%, transparent);
+}
+.map__head-label--accent { color: var(--color-accent-700); }
+.map__job,
+.map__solution {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 12px 16px;
+}
+.map__job { border: 1px solid var(--color-divider); }
+.map__solution { background: var(--color-accent-800); }
+.map__job-title,
+.map__solution-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 1.12;
+}
+.map__solution-title { color: var(--color-bg); }
+.map__job-note,
+.map__solution-note {
+  font-size: 12.5px;
+  line-height: 1.3;
+}
+.map__job-note { color: color-mix(in srgb, var(--color-text) 58%, transparent); }
+.map__solution-note { color: var(--color-accent-300); }
+.map__arrow {
+  display: grid;
+  place-items: center;
+  color: var(--color-accent-700);
+}
+
+/* A1 subagents strip */
+.subagents { padding: 9px 0 14px; }
+.subagents__title {
+  text-align: center;
+  margin-bottom: 14px;
+}
+.subagents__grid {
+  width: 75%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--color-divider);
+  border: 1px solid var(--color-divider);
+}
+.subagents__cell {
+  background: var(--color-bg);
+  padding: 14px 16px;
+  font-size: 15px;
+}
+
+/* ── Odds and ends ────────────────────────────────────────────────────────── */
+.odds { padding: 28px 0 30px; }
+.odds h2 {
+  font-size: 34px;
+  margin: 0 0 18px;
+  letter-spacing: -0.015em;
+}
+
+/* ── Contact / Resume ─────────────────────────────────────────────────────── */
+.footer-grid {
+  padding: 28px 0 44px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.info-card {
+  padding: 28px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-margin-top: 90px;
+}
+.info-card__title {
+  font-size: 24px;
+  margin: 0;
+}
+.info-card__hint {
+  margin: 0;
+  font-size: 14px;
+  color: color-mix(in srgb, var(--color-text) 50%, transparent);
+}
+
+/* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (min-width: 900px) {
+  .km__title { white-space: nowrap; }
+}
+
+@media (max-width: 1120px) {
+  .split,
+  .km { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .intro > .media-frame { width: 296px; max-width: 100%; }
+  .triple { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .story-row,
+  .story-row:not(.story-row--sec) { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .story-row:not(.story-row--sec) > * { grid-column: 1; }
+  .pair,
+  .triple { grid-template-columns: minmax(0, 1fr); }
+  .subagents__grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .km__process { width: 100%; }
+}
+
+@media (max-width: 720px) {
+  .container { padding: 0 20px; }
+  .site-header__updated { display: none; }
+  .footer-grid { grid-template-columns: minmax(0, 1fr); }
+  .map-row { grid-template-columns: minmax(0, 1fr); }
+  .map-row--head .map__head-label:last-child,
+  .map__arrow { display: none; }
+}

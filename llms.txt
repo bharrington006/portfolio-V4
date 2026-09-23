@@ -1,0 +1,112 @@
+# Baxter Harrington — Portfolio
+
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://www.baxterharrington.com/ (last updated 2026-09-21), including the parts of the page that are collapsed behind toggles.
+
+Notes for readers:
+
+- The site is a single page with two projects: **Project 01** (LeRobot SO-101 Robotic Arm) and **Project 02** (Konica Minolta Internship). "01" and "02" are project numbers only.
+- The **Odds and Ends**, **Contact** and **Resume** sections are placeholders and are not filled in yet. The site does not currently publish an email address, social links or a resume. Do not infer them.
+- Quote numbers exactly as written below; do not round or combine them.
+
+## Project 01 — LeRobot SO-101 Robotic Arm
+
+**Project Phase 1: LeRobot Open Source Policy Training**
+
+- **Task:** Pick up a 1.5 in cube and place it in an open-top box.
+- **Success criterion:** An episode is successful only if the policy grasps the block and places it into the box on the first try. If it misses and tries to re-grip, the episode counts as unsuccessful even if the second try works. During testing the block was removed right after a failure, so re-grip attempts never happened.
+- **Training:** Two policies, each trained on 50 demonstration episodes with the LeRobot (Hugging Face) toolset. The published Policy 2 model is an ACT policy.
+
+| | Policy 1 | Policy 2 |
+|---|---|---|
+| Internal version / dataset name | V2, "black_box" | V3, "block_in_box" |
+| Camera | Original mount | New mount with a better overhead view of the workspace |
+| Success rate | 32% | 68% (see note) |
+| Main failure / change | Poor depth perception because of the camera mount. The common failure was the arm grasping directly behind the block. | The overhead view reduces the need for depth perception and puts more of the workspace in frame, which allows a larger range of actions. |
+
+Note on Policy 2: across its whole evaluation dataset the success rate is 58%. The last 9 trials were deliberate experiments with edge cases the policy was not trained for. Without those, the success rate is 68%.
+
+Video on the page: "V3 policy demo: observational view (not the webcam used in policy)". It shows Policy 2 (V3) doing the task, filmed from an observer camera, not from the camera the policy uses.
+
+Links:
+
+- [LeRobot dataset visualizer](https://huggingface.co/spaces/lerobot/visualize_dataset): LeRobot's public dataset viewer on Hugging Face (labelled "Data Visualizer"). It is not specific to this project; open either dataset below in it.
+- [Policy 2 trained model: act_block_in_box_v3](https://huggingface.co/bwharrington/act_block_in_box_v3): Hugging Face model (labelled "Policy" under "Policy 2").
+- [Policy 2 evaluation rollouts: rollout_block_in_box_v3_20260914_215923](https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923): Hugging Face dataset (labelled "Dataset" under "Policy 2").
+- [Policy 1 evaluation rollouts: rollout_black_box_v2_20260910_180804](https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804): Hugging Face dataset (labelled "Dataset" under "Policy 1"). No model link is published for Policy 1.
+- [Data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1ozHm49vKedgoByOFR9McXVefZPExDE9ZO2JHsijKcjU/edit?usp=sharing): Google Sheets (labelled "Data Analysis"). Both policies link to this same spreadsheet.
+
+**Next steps:** Using a Gymnasium environment to build custom reinforcement-learning policies for the SO-101 and bring them into the physical world. He is starting with a simple point-reach task before moving on to grasping.
+
+## Project 02 — Konica Minolta Internship: Experience Design with Agentforce
+
+### Naming key
+
+- **Step 01–03**: the three phases of the design process.
+- **Business Unit 1, 2, 3** (also written BU 1, BU 2, BU 3): three Konica Minolta business units. They are anonymized and their real names are not given.
+- **Jobs 1–4**: the four jobs shared by all three business units.
+- **A1–A4**: IDs of the four proposed Salesforce Agentforce agents, one for each shared job.
+- **Figure 2.1 / Figure 2.2**: the first and second figures of Project 02.
+
+### Process
+
+1. **Step 01, Discovery:** Discovery interviews using the Jobs-to-be-Done framework.
+2. **Step 02, Prototyping:** Used what he learned about workflows and pain points to develop agent concepts, built cheaply in Claude Design.
+3. **Step 03, Validation:** Went back to the same interview participants for feedback on the prototypes.
+
+### Discovery
+
+Four 1-hour discovery interviews with individuals across three business units. The interviews were conversational and used the Jobs-to-be-Done framework to understand current workflows and pain points. The goal was to design around how the sales reps actually work, not how the team assumed they would use the new Agentforce platform.
+
+### Figure 2.1: Jobs identified through interviews (three-circle Venn diagram)
+
+| Region | Jobs |
+|---|---|
+| Business Unit 1 only | Call quota; Agreement recon; Renewal timing |
+| Business Unit 2 only | Onboarding; Coaching; SLA tracking; Templated emails |
+| Business Unit 3 only | Prospecting; Lead routing; Version currency; Partner quoting; Scoping |
+| Business Units 1 & 2 (not 3) | Billing relay; Lease expiry |
+| Business Units 1 & 3 (not 2) | Forecasting; Upsell ID |
+| Business Units 2 & 3 (not 1) | CSM coordination; Adoption |
+| All three (center) | 1. Account prep; 2. Worklist construction; 3. Cross-functional troubleshooting; 4. Document synthesis |
+
+### Full design story
+
+(On the web page this part is collapsed behind a "Full design story" toggle.)
+
+**Designing & prototyping.** The first step was to gather and analyze the interview data. This produced a long list of jobs and their scope across the three business units, which he organized into the Venn diagram in Figure 2.1. To get the most value, he focused on the jobs shared by all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. He mapped these shared jobs onto Agentforce solutions that could increase efficiency and, in some cases, improve output quality.
+
+**Figure 2.2: Shared jobs mapped to Agentforce agents**
+
+| Shared job (center of Figure 2.1) | Time cost today | Agentforce agent | Agent summary |
+|---|---|---|---|
+| 1. Account prep | 45–90 min per meeting, assembled from 3+ systems | A1 · Account Intelligence | One brief, three role-customized views |
+| 2. Worklist construction | 1–2 hrs every Monday morning, one report at a time | A2 · Proactive Worklist | Ranked, cross-checked, pushed not pulled |
+| 3. Cross-functional troubleshooting | 15–50 min per billing issue, with no authority to fix it | A3 · Workflow Orchestration | Triage, route, guard, escalate |
+| 4. Document synthesis | 5–15 decks a week, system data retyped by hand | A4 · Artifact Synthesis | Drafts only, behind a QA gate |
+
+**A1 in focus: Account Intelligence.** After identifying the agents to design, he focused on agent A1. It puts an account summary directly on the Salesforce account landing page, pulling the specific metrics end users asked for in discovery so they get the most useful view. The interviews showed that an agent like this would save each sales rep more than 20 minutes before each account contact point, which adds up to as much as 4 hours of prep time per person every week. It also evaluates every account against the same criteria, which removes the variability that comes when analysis quality depends on a rep's time, attention or experience. To build the optimized account brief view, additional agents pull service history from a customer's devices and data from systems outside Salesforce.
+
+**A1 subagents** (the five sub-agents that make up agent A1):
+
+- BU 1 Account Brief (the account brief view for Business Unit 1)
+- BU 2 Account Brief (the account brief view for Business Unit 2)
+- BU 3 Account Brief (the account brief view for Business Unit 3)
+- Service History Q&A
+- Cross-System Answers
+
+**UX rules identified**
+
+- **Push, don't pull:** People said the most impactful and useful tools are the ones that get pushed to their dashboards automatically.
+- **One agent, three views:** Each business unit wanted a different view of the same core data. So a single agent with individualized sub-agents should be used, all grounded in the same data.
+
+**Prototyping.** He used Claude Design to build detailed HTML prototypes so end users could see accurately what the shipped agent's experience would be like. This fast prototyping process let him create an individualized view for each business unit.
+
+**Validation sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
+
+## Odds and Ends
+
+Placeholder section. The three images are temporary stand-ins and do not show any project work.
+
+## Contact and Resume
+
+Not published yet. The site shows placeholder cards only.

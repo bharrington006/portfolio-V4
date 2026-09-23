@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Baxter Harrington — Portfolio</title>
+<meta name="description" content="Portfolio of Baxter Harrington, Mechanical Engineering and Human-Computer Interaction student at Washington University in St. Louis (WashU). Projects: LeRobot SO-101 robotic arm policy training, and a Konica Minolta internship designing Salesforce Agentforce agents.">
+<meta name="author" content="Baxter Harrington">
+<link rel="canonical" href="https://www.baxterharrington.com/">
+<!-- Plain-Markdown copy of everything on this page, written for AI agents and other text-only readers -->
+<link rel="alternate" type="text/markdown" href="/llms.txt" title="Baxter Harrington — Portfolio (plain text)">
+
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Baxter Harrington — Portfolio">
+<meta property="og:description" content="Mechanical Engineering + HCI at WashU. LeRobot SO-101 robotic arm policy training; Konica Minolta internship designing Agentforce agents.">
+<meta property="og:url" content="https://www.baxterharrington.com/">
+<meta property="og:image" content="https://www.baxterharrington.com/assets/images/baxter-harrington-headshot.webp">
+<meta property="profile:first_name" content="Baxter">
+<meta property="profile:last_name" content="Harrington">
+
+<link rel="icon" href="assets/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/portfolio.css">
+<!-- Flag JS before first paint so the design story starts collapsed without a flash.
+     Without JS the story simply stays open. -->
+<script>document.documentElement.classList.add("js");</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "url": "https://www.baxterharrington.com/",
+  "name": "Baxter Harrington — Portfolio",
+  "dateModified": "2026-09-21",
+  "mainEntity": {
+    "@type": "Person",
+    "@id": "https://www.baxterharrington.com/#person",
+    "name": "Baxter Harrington",
+    "url": "https://www.baxterharrington.com/",
+    "image": "https://www.baxterharrington.com/assets/images/baxter-harrington-headshot.webp",
+    "description": "Student of Mechanical Engineering and Human-Computer Interaction at WashU, interested in how AI is moving into the physical world. Works through discovery, prototyping, and extensive testing.",
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "Washington University in St. Louis (WashU)" },
+    "knowsAbout": ["Mechanical engineering", "Human-computer interaction", "Robot learning", "LeRobot", "Imitation learning (ACT)", "Experience design", "Jobs-to-be-Done interviews", "Salesforce Agentforce", "Prototyping"],
+    "sameAs": ["https://huggingface.co/bwharrington"]
+  },
+  "hasPart": [
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.baxterharrington.com/#so-101",
+      "position": 1,
+      "name": "Project 01 — LeRobot SO-101 Robotic Arm",
+      "author": { "@id": "https://www.baxterharrington.com/#person" },
+      "abstract": "Trained two imitation-learning policies (50 demonstration episodes each) with the LeRobot Hugging Face toolset for a pick-and-place task: pick up a 1.5 in cube and place it in an open-top box on the first try. Policy 1 (internal version V2, 'black_box'): 32% success, limited by depth perception from its camera mount. Policy 2 (internal version V3, 'block_in_box'): new overhead camera mount, 68% success (58% over the whole evaluation dataset, which includes 9 final trials of untrained edge cases). Next step: custom reinforcement-learning policies in a Gymnasium environment, starting with point reaching.",
+      "keywords": "LeRobot, SO-101, ACT policy, imitation learning, Hugging Face, robotics",
+      "associatedMedia": { "@type": "VideoObject", "name": "Policy 2 (V3) demo, observational camera view", "contentUrl": "https://www.baxterharrington.com/assets/video/so101-policy2-v3-rollout-demo.mp4", "uploadDate": "2026-09-14" },
+      "citation": [
+        { "@type": "SoftwareSourceCode", "name": "Policy 2 (V3) trained ACT model", "url": "https://huggingface.co/bwharrington/act_block_in_box_v3" },
+        { "@type": "Dataset", "name": "Policy 2 (V3) evaluation rollouts", "url": "https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" },
+        { "@type": "Dataset", "name": "Policy 1 (V2) evaluation rollouts", "url": "https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" },
+        { "@type": "CreativeWork", "name": "Success-rate data analysis spreadsheet (both policies)", "url": "https://docs.google.com/spreadsheets/d/1ozHm49vKedgoByOFR9McXVefZPExDE9ZO2JHsijKcjU/edit?usp=sharing" }
+      ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://www.baxterharrington.com/#konica-minolta",
+      "position": 2,
+      "name": "Project 02 — Konica Minolta Internship: Experience Design with Agentforce",
+      "author": { "@id": "https://www.baxterharrington.com/#person" },
+      "abstract": "Ran four 1-hour Jobs-to-be-Done discovery interviews with sales staff across three (anonymized) business units, mapped the jobs in a Venn diagram, and designed four Salesforce Agentforce agents (A1 Account Intelligence, A2 Proactive Worklist, A3 Workflow Orchestration, A4 Artifact Synthesis) for the four jobs shared by all three units. Focused on A1, which puts a role-customized account brief on the Salesforce account page and was estimated to save each rep 20+ minutes per account contact (up to 4 hours per week). Prototyped in HTML with Claude Design and validated in 30-minute feedback sessions with the same interviewees.",
+      "keywords": "experience design, Jobs-to-be-Done, Salesforce Agentforce, AI agents, prototyping, Claude Design"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── Header ─────────────────────────────────────────────────────────── -->
+  <header class="site-header">
+    <div class="site-header__inner container">
+      <a href="#top" class="site-header__brand">Baxter Harrington’s Portfolio</a>
+      <p class="site-header__updated"><time datetime="2026-09-21">Last Updated: September 21st, 2026</time></p>
+      <nav class="site-header__nav" aria-label="Site">
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+
+    <!-- ── Intro ────────────────────────────────────────────────────────── -->
+    <section class="intro" aria-label="Intro">
+      <div class="media-frame media-frame--portrait blueprint">
+        <img src="assets/images/baxter-harrington-headshot.webp" alt="Headshot of Baxter Harrington" width="863" height="956">
+      </div>
+      <div class="intro__text">
+        <h1>Hi,<span class="sr-only"> I’m Baxter Harrington.</span></h1>
+        <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU. I'm especially interested in how AI is moving into our physical world, but no matter the project, I take the same approach: discovery, prototyping, and extensive testing.&nbsp;<br><br>Here's my recent work.</p>
+        <p class="sr-only">This page has two projects — Project 01: LeRobot SO-101 Robotic Arm, and Project 02: Konica Minolta Internship — followed by an Odds and Ends section and Contact and Resume cards that are still placeholders.</p>
+      </div>
+    </section>
+
+    <!-- ── Project 01 · LeRobot SO-101 ───────────────────────────────────── -->
+    <section class="project" id="so-101" aria-labelledby="so-101-title">
+      <div class="project__header">
+        <div class="project__number blueprint" aria-hidden="true">01</div>
+        <h2 class="project__title" id="so-101-title"><span class="sr-only">Project 01: </span>LeRobot SO-101 Robotic Arm</h2>
+      </div>
+
+      <div class="split">
+        <div class="split__media">
+          <figure>
+            <div class="media-frame media-frame--arm blueprint">
+              <video src="assets/video/so101-policy2-v3-rollout-demo.mp4" autoplay loop muted playsinline controls preload="auto" aria-label="Video: the SO-101 robotic arm running Policy 2 (V3), picking up a cube and placing it in a box, filmed from an observer camera"></video>
+            </div>
+            <figcaption class="media-caption media-caption--lg">V3 policy demo: observational view (not the webcam used in policy)</figcaption>
+          </figure>
+
+          <div class="policy-links">
+            <div class="policy-links__row">
+              <a class="btn btn-secondary" href="https://huggingface.co/spaces/lerobot/visualize_dataset" target="_blank" rel="noopener">Data Visualizer<span class="sr-only"> (LeRobot’s public dataset visualizer on Hugging Face; open either dataset below in it)</span></a>
+            </div>
+          </div>
+
+          <div class="policy-links">
+            <h3 class="kicker policy-links__title heading-reset">Policy 2<span class="sr-only"> (version V3, “block_in_box”) — links</span></h3>
+            <div class="policy-links__row">
+              <a class="btn btn-secondary" href="https://huggingface.co/bwharrington/act_block_in_box_v3" target="_blank" rel="noopener">Policy<span class="sr-only"> 2 trained model: ACT policy “act_block_in_box_v3” on Hugging Face</span></a>
+              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 2 evaluation rollouts, recorded 2026-09-14 (Hugging Face)</span></a>
+              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/1ozHm49vKedgoByOFR9McXVefZPExDE9ZO2JHsijKcjU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: success-rate spreadsheet (Google Sheets; same spreadsheet as Policy 1’s link)</span></a>
+            </div>
+          </div>
+
+          <div class="policy-links">
+            <h3 class="kicker policy-links__title heading-reset">Policy 1<span class="sr-only"> (version V2, “black_box”) — links; no model link is published for Policy 1</span></h3>
+            <div class="policy-links__row">
+              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 1 evaluation rollouts, recorded 2026-09-10 (Hugging Face)</span></a>
+              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/1ozHm49vKedgoByOFR9McXVefZPExDE9ZO2JHsijKcjU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: success-rate spreadsheet (Google Sheets; same spreadsheet as Policy 2’s link)</span></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project__blurb project__blurb--wide text-86">
+          <h3>Project Phase 1: LeRobot Open Source Policy Training</h3>
+          <p>Task: Pick up a 1.5in cube and place it in an open top box. A given policy has a successful episode if it grasps the block and places it into the box on the first try. If it misses and then tries to re-grip this is an unsuccessful episode, regardless of the success of the second try. During testing I removed the block from the environment immediately after episode failure, preventing this case entirely.</p>
+          <p>I trained 2 policies, each off of 50 episodes of demonstration using LeRobot Hugging Face toolset.</p>
+          <p><strong class="inline-subheading">Policy 1</strong><span class="sr-only"> (V2)</span> has a success rate of 32%. It experiences significant issues with depth perception due to the camera mount location. This issue was observed through the common failure mode of the arm grasping directly behind the block.</p>
+          <p><strong class="inline-subheading">Policy 2</strong> (V3) uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68%.</p>
+          <p>Note that the success rate of this entire dataset<span class="sr-only"> (the Policy 2 evaluation dataset)</span> is 58%, but for the last 9 trials I was experimenting with edge cases that the policy was not trained for. The success rate of the policy without these edge cases is 68%.</p>
+        </div>
+      </div>
+
+      <div class="story-row story-row--sec">
+        <h3 class="kicker story-row__label heading-reset">Next Steps:</h3>
+        <div class="story-row__body">
+          <p class="body-copy text-88">Using the Gymnasium environment to create custom reinforcement learning policies for my SO-101 to bring into the physical world. Currently starting with a simple point reach task before getting into grasping mechanics.</p>
+        </div>
+      </div>
+
+      <hr class="hr hr--policy-gap">
+    </section>
+
+    <!-- ── Project 02 · Konica Minolta Internship ────────────────────────── -->
+    <section class="project" id="konica-minolta" aria-labelledby="km-title">
+      <div class="project__header project__header--spaced">
+        <div class="project__number blueprint" aria-hidden="true">02</div>
+        <h2 class="project__title km__title" id="km-title"><span class="sr-only">Project 02: </span>Konica Minolta Internship - Experience Design with Agentforce</h2>
+      </div>
+
+      <!-- Naming key for this project. Every ID used below is defined here so a
+           reader never has to guess what "01", "1.", "A1" or "BU 1" refers to. -->
+      <p class="sr-only">Naming key for this project: “Step 01–03” are the three phases of the design process. “Business Unit 1, 2, 3” (also written BU 1, BU 2, BU 3) are three anonymized Konica Minolta business units; their real names are not given. “Jobs 1–4” are the four jobs shared by all three business units. “A1–A4” are the IDs of the four proposed Salesforce Agentforce agents, one per shared job. “Figure 2.1” and “Figure 2.2” are the first and second figures of Project 02.</p>
+
+      <div class="km">
+        <div class="km__process">
+          <ol class="process-list" aria-label="Design process steps">
+            <li class="process-list__item">
+              <span class="process-list__num"><span class="sr-only">Step </span>01</span>
+              <p class="process-list__text"><span class="lead-in">Discovery:</span> I conducted discovery interviews following the Jobs-to-be-Done framework</p>
+            </li>
+            <li class="process-list__item">
+              <span class="process-list__num"><span class="sr-only">Step </span>02</span>
+              <p class="process-list__text"><span class="lead-in">Prototyping:</span> I used this knowledge of workflows and painpoints to develop agent concepts, built cheaply in Claude Design</p>
+            </li>
+            <li class="process-list__item">
+              <span class="process-list__num"><span class="sr-only">Step </span>03</span>
+              <p class="process-list__text"><span class="lead-in">Validation:</span> I went back to the same interview participants for feedback on the prototypes</p>
+            </li>
+          </ol>
+
+          <h3 class="kicker kicker--block heading-reset">Discovery</h3>
+          <p class="body-copy text-88">I conducted four 1 hour discovery interviews with individuals across three business units. The interviews held a conversational format using the Jobs-to-be-Done framework to understand current workflows and pain points. The goal for this project was to design around how our sales reps actually work, not how we assumed they would use the new Agentforce platform.</p>
+        </div>
+
+        <figure class="km__figure" aria-labelledby="fig-2-1-caption">
+          <figcaption class="figure-label heading-reset" id="fig-2-1-caption">
+            <span class="figure-label__num">Figure 2.1</span>
+            <span class="figure-label__title">Jobs identified through interviews</span>
+            <span class="sr-only">: a three-circle Venn diagram of the jobs each business unit does, and which jobs they share.</span>
+          </figcaption>
+
+          <!-- Text version of the Venn diagram. Region membership is otherwise only
+               encoded by where the words sit inside the circles, which text
+               readers cannot see. Keep this in sync with the SVG below. -->
+          <div class="sr-only">
+            <p>Figure 2.1 contents, region by region:</p>
+            <ul>
+              <li>Business Unit 1 only: Call quota; Agreement recon; Renewal timing.</li>
+              <li>Business Unit 2 only: Onboarding; Coaching; SLA tracking; Templated emails.</li>
+              <li>Business Unit 3 only: Prospecting; Lead routing; Version currency; Partner quoting; Scoping.</li>
+              <li>Shared by Business Units 1 and 2 (not 3): Billing relay; Lease expiry.</li>
+              <li>Shared by Business Units 1 and 3 (not 2): Forecasting; Upsell ID.</li>
+              <li>Shared by Business Units 2 and 3 (not 1): CSM coordination; Adoption.</li>
+              <li>Shared by all three business units (center): Job 1, Account prep; Job 2, Worklist construction; Job 3, Cross-functional troubleshooting; Job 4, Document synthesis.</li>
+            </ul>
+          </div>
+
+          <div class="venn blueprint">
+            <!-- Hidden from assistive tech (the list above is the accessible version).
+                 Each region is a <g>; its first <text> is a zero-size, transparent
+                 region label so plain text extraction of the SVG still says which
+                 region the words belong to. Each line is its own <text> so the
+                 words don't run together when extracted. -->
+            <svg viewBox="0 0 760 621" aria-hidden="true">
+              <circle class="venn__circle--1" cx="379" cy="261" r="209.25" stroke-width="1.5"/>
+              <circle class="venn__circle--2" cx="294" cy="395" r="209.25" stroke-width="1.5"/>
+              <circle class="venn__circle--3" cx="458" cy="395" r="209.25" stroke-width="1.5"/>
+
+              <text class="venn__bu venn__bu--1" x="380" y="34" text-anchor="middle">BUSINESS UNIT 1</text>
+              <text class="venn__bu venn__bu--2" x="41" y="604">BUSINESS UNIT 2</text>
+              <text class="venn__bu venn__bu--3" x="730" y="604" text-anchor="end">BUSINESS UNIT 3</text>
+
+              <g class="venn__region" data-region="bu1-only">
+                <text class="venn__region-label" x="378" y="107" font-size="0" fill-opacity="0">Business Unit 1 only:</text>
+                <text class="venn__items" text-anchor="middle" x="378" y="107">Call quota</text>
+                <text class="venn__items" text-anchor="middle" x="378" y="128.6">Agreement recon</text>
+                <text class="venn__items" text-anchor="middle" x="378" y="150.2">Renewal timing</text>
+              </g>
+              <g class="venn__region" data-region="bu1-bu2">
+                <text class="venn__region-label" x="229" y="246" font-size="0" fill-opacity="0">Business Units 1 and 2 shared:</text>
+                <text class="venn__items" text-anchor="middle" x="229" y="246">Billing relay</text>
+                <text class="venn__items" text-anchor="middle" x="229" y="267.6">Lease expiry</text>
+              </g>
+              <g class="venn__region" data-region="bu1-bu3">
+                <text class="venn__region-label" x="523" y="256" font-size="0" fill-opacity="0">Business Units 1 and 3 shared:</text>
+                <text class="venn__items" text-anchor="middle" x="523" y="256">Forecasting</text>
+                <text class="venn__items" text-anchor="middle" x="523" y="277.6">Upsell ID</text>
+              </g>
+              <g class="venn__region" data-region="all-three">
+                <text class="venn__region-label" x="376" y="334" font-size="0" fill-opacity="0">All three business units shared:</text>
+                <text class="venn__core" text-anchor="middle" x="376" y="334">1. Account prep</text>
+                <text class="venn__core" text-anchor="middle" x="376" y="357.75">2. Worklist construction</text>
+                <text class="venn__core" text-anchor="middle" x="376" y="381.5">3. Cross-functional troubleshooting</text>
+                <text class="venn__core" text-anchor="middle" x="376" y="405.25">4. Document synthesis</text>
+              </g>
+              <g class="venn__region" data-region="bu2-only">
+                <text class="venn__region-label" x="198" y="446" font-size="0" fill-opacity="0">Business Unit 2 only:</text>
+                <text class="venn__items" text-anchor="middle" x="198" y="446">Onboarding</text>
+                <text class="venn__items" text-anchor="middle" x="198" y="467.6">Coaching</text>
+                <text class="venn__items" text-anchor="middle" x="198" y="489.2">SLA tracking</text>
+                <text class="venn__items" text-anchor="middle" x="198" y="510.8">Templated emails</text>
+              </g>
+              <g class="venn__region" data-region="bu2-bu3">
+                <text class="venn__region-label" x="376" y="503" font-size="0" fill-opacity="0">Business Units 2 and 3 shared:</text>
+                <text class="venn__items" text-anchor="middle" x="376" y="503">CSM coordination</text>
+                <text class="venn__items" text-anchor="middle" x="376" y="524.6">Adoption</text>
+              </g>
+              <g class="venn__region" data-region="bu3-only">
+                <text class="venn__region-label" x="561" y="447" font-size="0" fill-opacity="0">Business Unit 3 only:</text>
+                <text class="venn__items" text-anchor="middle" x="561" y="447">Prospecting</text>
+                <text class="venn__items" text-anchor="middle" x="561" y="468.6">Lead routing</text>
+                <text class="venn__items" text-anchor="middle" x="561" y="490.2">Version currency</text>
+                <text class="venn__items" text-anchor="middle" x="561" y="511.8">Partner quoting</text>
+                <text class="venn__items" text-anchor="middle" x="561" y="533.4">Scoping</text>
+              </g>
+            </svg>
+          </div>
+        </figure>
+      </div>
+
+      <!-- The full design story. Collapsed visually by default (see .story in
+           portfolio.css), but it is never display:none / [hidden]: the text stays
+           in the page so agents, search engines and screen readers can read it
+           without clicking the toggle. -->
+      <div class="story" id="km-story" role="region" aria-label="Konica Minolta internship — full design story">
+        <p class="sr-only">Full design story for Project 02 (Konica Minolta internship). On screen this part is collapsed behind the “Full design story” toggle; its text is included here in full.</p>
+
+        <div class="story-row story-row--sec">
+          <h3 class="kicker story-row__label heading-reset">Designing &amp; prototyping</h3>
+          <div class="story-row__body">
+            <p class="body-copy text-88">The first step of the design was to gather and analyze the data collected through interviews. This yielded an extensive list of jobs and their scope across the three business units. Organizing these jobs into a Venn-Diagram yielded Figure 2.1, shown above.</p>
+            <p class="body-copy text-88">To maximize the value proposition, I focused on creating solutions for the jobs shared across all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. I mapped these shared jobs onto Agentforce solutions that could both increase efficiency and in some cases improve output quality.</p>
+          </div>
+        </div>
+
+        <figure class="story-row">
+          <figcaption class="kicker story-row__label heading-reset">Figure 2.2<span class="sr-only">: each of the four jobs shared by all three business units (Jobs 1–4), with its current time cost, mapped to the proposed Agentforce agent (A1–A4) that addresses it.</span></figcaption>
+          <div>
+            <div class="map blueprint">
+              <div class="map-row map-row--head" aria-hidden="true">
+                <div class="map__head-label">Central Venn Diagram Job to be Done</div>
+                <div></div>
+                <div class="map__head-label map__head-label--accent">Agentforce Solution</div>
+              </div>
+              <ul class="map__rows" role="list">
+                <li class="map-row">
+                  <div class="map__job">
+                    <div class="map__job-title"><span class="sr-only">Job </span>1. Account prep</div>
+                    <div class="map__job-note"><span class="sr-only">Today: </span>45–90 min per meeting, assembled from 3+ systems</div>
+                  </div>
+                  <span class="sr-only">is addressed by agent</span>
+                  <div class="map__arrow">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
+                  <div class="map__solution">
+                    <div class="map__solution-title">A1 · Account Intelligence</div>
+                    <div class="map__solution-note">One brief, three role-customized views</div>
+                  </div>
+                </li>
+                <li class="map-row">
+                  <div class="map__job">
+                    <div class="map__job-title"><span class="sr-only">Job </span>2. Worklist construction</div>
+                    <div class="map__job-note"><span class="sr-only">Today: </span>1–2 hrs every Monday morning, one report at a time</div>
+                  </div>
+                  <span class="sr-only">is addressed by agent</span>
+                  <div class="map__arrow">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
+                  <div class="map__solution">
+                    <div class="map__solution-title">A2 · Proactive Worklist</div>
+                    <div class="map__solution-note">Ranked, cross-checked, pushed not pulled</div>
+                  </div>
+                </li>
+                <li class="map-row">
+                  <div class="map__job">
+                    <div class="map__job-title"><span class="sr-only">Job </span>3. Cross-functional troubleshooting</div>
+                    <div class="map__job-note"><span class="sr-only">Today: </span>15–50 min per billing issue, with no authority to fix it</div>
+                  </div>
+                  <span class="sr-only">is addressed by agent</span>
+                  <div class="map__arrow">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
+                  <div class="map__solution">
+                    <div class="map__solution-title">A3 · Workflow Orchestration</div>
+                    <div class="map__solution-note">Triage, route, guard, escalate</div>
+                  </div>
+                </li>
+                <li class="map-row">
+                  <div class="map__job">
+                    <div class="map__job-title"><span class="sr-only">Job </span>4. Document synthesis</div>
+                    <div class="map__job-note"><span class="sr-only">Today: </span>5–15 decks a week, system data retyped by hand</div>
+                  </div>
+                  <span class="sr-only">is addressed by agent</span>
+                  <div class="map__arrow">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                  </div>
+                  <div class="map__solution">
+                    <div class="map__solution-title">A4 · Artifact Synthesis</div>
+                    <div class="map__solution-note">Drafts only, behind a QA gate</div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </figure>
+
+        <div class="story-row story-row--sec">
+          <h3 class="kicker story-row__label heading-reset">A1: in focus<span class="sr-only"> (agent A1, Account Intelligence)</span></h3>
+          <div class="story-row__body">
+            <p class="body-copy text-88">After identifying the agents to be designed, I honed in on agent A1: Account Intelligence. This agent will provide an account summary right on the salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature would save each sales rep upwards of 20 minutes before each account contact point, saving up to 4 hours of prep time per person every week.</p>
+            <p class="body-copy text-88">In addition to these efficiency gains, this agent will evaluate every account against the same criteria, removing the variability that occurs when analysis quality depends on a sales rep's time, attention, or experience.</p>
+            <p class="body-copy text-88">As part of creating an optimized account brief view, additional agents will pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
+          </div>
+        </div>
+
+        <div class="subagents">
+          <h4 class="kicker kicker--muted subagents__title heading-reset">A1 subagents<span class="sr-only"> (the five sub-agents that make up agent A1, Account Intelligence)</span></h4>
+          <ul class="subagents__grid" role="list">
+            <li class="subagents__cell">BU 1 Account Brief<span class="sr-only"> (account brief view for Business Unit 1)</span></li>
+            <li class="subagents__cell">BU 2 Account Brief<span class="sr-only"> (account brief view for Business Unit 2)</span></li>
+            <li class="subagents__cell">BU 3 Account Brief<span class="sr-only"> (account brief view for Business Unit 3)</span></li>
+            <li class="subagents__cell">Service History Q&amp;A</li>
+            <li class="subagents__cell">Cross-System Answers</li>
+          </ul>
+        </div>
+
+        <div class="story-row">
+          <h3 class="kicker kicker--muted story-row__label heading-reset">UX rules identified</h3>
+          <div class="story-row__body story-row__body--tight">
+            <p class="body-copy text-88"><span class="lead-in">Push, don’t pull:</span> individuals made it clear that the most impactful and useful tools are the ones that get automatically pushed to their dashboards.</p>
+            <p class="body-copy text-88"><span class="lead-in">One agent, three views:</span> each of the BUs requested different views into the same core data points, so a single agent with individualized sub-agents should be utilized, as they will all be grounded in the same data</p>
+          </div>
+        </div>
+
+        <div class="story-row">
+          <h3 class="kicker kicker--muted story-row__label heading-reset">Prototyping</h3>
+          <p class="body-copy text-88">Using Claude Design I was able to create elaborate prototypes in HTML for the end users to get an accurate understanding of what the user experience will be of the shipped agent. This efficient prototyping process allowed me to create the individualized view for each of the business units.</p>
+        </div>
+
+        <div class="story-row">
+          <h3 class="kicker kicker--muted story-row__label heading-reset">Validation sessions</h3>
+          <p class="body-copy text-88">Returned to the same interview participants with the HTML prototypes for 30 minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
+        </div>
+
+      </div>
+
+      <div class="story-toggle">
+        <div class="story-toggle__rule"></div>
+        <div class="story-toggle__control">
+          <span class="story-toggle__label story-toggle__label--lg story-toggle__label--closed" aria-hidden="true">Full design story</span>
+          <span class="story-toggle__label story-toggle__label--lg story-toggle__label--open" aria-hidden="true">Collapse</span>
+          <button type="button" class="story-toggle__btn blueprint" data-story-toggle aria-expanded="false" aria-controls="km-story" title="Konica Minolta Internship — complete design story" aria-label="Show or hide the Konica Minolta internship design story">
+            <svg class="story-toggle__icon--closed" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+            <svg class="story-toggle__icon--open" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
+          </button>
+        </div>
+        <div class="story-toggle__rule"></div>
+      </div>
+    </section>
+
+    <!-- ── Odds and Ends ────────────────────────────────────────────────── -->
+    <section class="odds" id="odds-and-ends" aria-labelledby="odds-title">
+      <h2 id="odds-title">Odds and Ends</h2>
+      <p class="sr-only">Not yet filled in: the three images in this section are temporary placeholders and do not show any project work.</p>
+      <div class="triple">
+        <div class="media-frame media-frame--square blueprint">
+          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
+        </div>
+        <div class="media-frame media-frame--square blueprint">
+          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
+        </div>
+        <div class="media-frame media-frame--square blueprint">
+          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Contact / Resume ─────────────────────────────────────────────── -->
+    <section class="footer-grid" aria-label="Contact and resume">
+      <div id="contact" class="info-card blueprint">
+        <h2 class="info-card__title">Contact</h2>
+        <p class="info-card__hint"><span class="sr-only">Not yet published. Placeholder text: </span>Add your email and links here.</p>
+      </div>
+      <div id="resume" class="info-card blueprint">
+        <h2 class="info-card__title">Resume</h2>
+        <p class="info-card__hint"><span class="sr-only">Not yet published. Placeholder text: </span>Link your resume PDF here.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>

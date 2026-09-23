@@ -1,0 +1,6 @@
+# All crawlers and AI agents are welcome.
+# A plain-text copy of the whole site, written for AI agents, is at /llms.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://www.baxterharrington.com/sitemap.xml
