@@ -4,8 +4,8 @@
 
 Notes for readers:
 
-- The site is a single page with two projects: **Project 01** (LeRobot SO-101 Robotic Arm) and **Project 02** (Konica Minolta Internship). "01" and "02" are project numbers only.
-- The **Odds and Ends**, **Contact** and **Resume** sections are placeholders and are not filled in yet. The site does not currently publish an email address, social links or a resume. Do not infer them.
+- The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge). "01", "02" and "03" are project numbers only.
+- The **Resume** card is a placeholder; no resume is published yet. Do not infer one. Contact details are listed at the end of this file.
 - Quote numbers exactly as written below; do not round or combine them.
 
 ## Project 01 — LeRobot SO-101 Robotic Arm
@@ -103,10 +103,19 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 **Validation sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
 
-## Odds and Ends
+## Project 03 — University Rover Challenge
 
-Placeholder section. The three images are temporary stand-ins and do not show any project work.
+**Current state:** Onboarding new members. No design work is published yet; the page says to check back soon for design updates.
 
-## Contact and Resume
+**Challenge rulebook:** The page embeds the official [University Rover Challenge 2027 – Requirements and Guidelines](https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing) (PDF on Google Drive, 15 pages) from the Mars Society. It is the competition's rulebook, not his own work.
 
-Not published yet. The site shows placeholder cards only.
+## Contact
+
+- **Email:** bwharrington06@gmail.com
+- **Phone:** 802-771-4160
+- **LinkedIn:** [linkedin.com/in/baxharr](https://www.linkedin.com/in/baxharr)
+- **GitHub:** [github.com/bharrington006](https://github.com/bharrington006)
+
+## Resume
+
+Not published yet. The site shows a placeholder card only.

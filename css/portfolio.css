@@ -157,7 +157,8 @@ a:hover { color: var(--color-accent-700); }
   overflow: hidden;
 }
 .media-frame > img,
-.media-frame > video {
+.media-frame > video,
+.media-frame > iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -170,6 +171,8 @@ a:hover { color: var(--color-accent-700); }
 .media-frame--cad      { aspect-ratio: 515 / 288; }
 .media-frame--4x3      { aspect-ratio: 4 / 3; }
 .media-frame--square   { aspect-ratio: 1 / 1; }
+.media-frame--letter   { aspect-ratio: 8.5 / 11; }
+.media-frame > iframe  { border: 0; }
 
 /* Accent wash over a photograph (the system's duotone treatment).
    Remove the class to show the image in its natural color. */
@@ -231,8 +234,8 @@ a:hover { color: var(--color-accent-700); }
   align-items: start;
 }
 .project__blurb {
-  font-size: 21px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.62;
   margin: 0;
   max-width: 26ch;
   text-wrap: pretty;
