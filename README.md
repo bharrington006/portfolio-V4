@@ -85,7 +85,7 @@ python3 -m http.server
 
 ## Deploying
 
-Push the folder as-is to any static host. All pages use `https://www.baxterharrington.com/`
+Push the folder as-is to any static host. All pages use `https://baxterharrington.com/`
 as the canonical URL. Hosting note: the apex domain currently answers with a
 **302 to `http://www.`**, which downgrades HTTPS to HTTP. Change it to a 301 to
-`https://www.baxterharrington.com/` in Cloudflare.
+`https://baxterharrington.com/` in Cloudflare.

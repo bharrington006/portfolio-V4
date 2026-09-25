@@ -1,6 +1,6 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://www.baxterharrington.com/ (last updated 2026-09-25), including the parts of the page that are collapsed behind toggles.
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-09-25), including the parts of the page that are collapsed behind toggles.
 
 Notes for readers:
 
@@ -118,4 +118,4 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 ## Resume
 
-[Resume (PDF)](https://www.baxterharrington.com/BaxterHarrington-Resume.pdf)
+[Resume (PDF)](https://baxterharrington.com/BaxterHarrington-Resume.pdf)

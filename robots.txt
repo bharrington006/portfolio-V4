@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.baxterharrington.com/sitemap.xml
+Sitemap: https://baxterharrington.com/sitemap.xml
