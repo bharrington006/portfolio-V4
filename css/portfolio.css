@@ -92,13 +92,13 @@ a:hover { color: var(--color-accent-700); }
   height: 66px;
 }
 .site-header__brand {
+  margin: 0;
   margin-right: auto;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 19px;
   letter-spacing: -0.01em;
   color: var(--color-text);
-  text-decoration: none;
 }
 .site-header__updated {
   position: absolute;
@@ -624,6 +624,7 @@ html:not(.js) .story-toggle { display: none; }
   margin: 0;
   font-size: 17px;
   color: color-mix(in srgb, var(--color-text) 80%, transparent);
+  overflow-wrap: anywhere;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */

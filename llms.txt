@@ -1,11 +1,11 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://www.baxterharrington.com/ (last updated 2026-09-21), including the parts of the page that are collapsed behind toggles.
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://www.baxterharrington.com/ (last updated 2026-09-25), including the parts of the page that are collapsed behind toggles.
 
 Notes for readers:
 
 - The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge). "01", "02" and "03" are project numbers only.
-- The **Resume** card is a placeholder; no resume is published yet. Do not infer one. Contact details are listed at the end of this file.
+- Contact details and the resume link are listed at the end of this file.
 - Quote numbers exactly as written below; do not round or combine them.
 
 ## Project 01 — LeRobot SO-101 Robotic Arm
@@ -29,11 +29,11 @@ Video on the page: "V3 policy demo: observational view (not the webcam used in p
 
 Links:
 
-- [LeRobot dataset visualizer](https://huggingface.co/spaces/lerobot/visualize_dataset): LeRobot's public dataset viewer on Hugging Face (labelled "Data Visualizer"). It is not specific to this project; open either dataset below in it.
 - [Policy 2 trained model: act_block_in_box_v3](https://huggingface.co/bwharrington/act_block_in_box_v3): Hugging Face model (labelled "Policy" under "Policy 2").
 - [Policy 2 evaluation rollouts: rollout_block_in_box_v3_20260914_215923](https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923): Hugging Face dataset (labelled "Dataset" under "Policy 2").
 - [Policy 1 evaluation rollouts: rollout_black_box_v2_20260910_180804](https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804): Hugging Face dataset (labelled "Dataset" under "Policy 1"). No model link is published for Policy 1.
-- [Data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1ozHm49vKedgoByOFR9McXVefZPExDE9ZO2JHsijKcjU/edit?usp=sharing): Google Sheets (labelled "Data Analysis"). Both policies link to this same spreadsheet.
+- [Policy 2 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 2").
+- [Policy 1 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 1").
 
 **Next steps:** Using a Gymnasium environment to build custom reinforcement-learning policies for the SO-101 and bring them into the physical world. He is starting with a simple point-reach task before moving on to grasping.
 
@@ -118,4 +118,4 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 ## Resume
 
-Not published yet. The site shows a placeholder card only.
+[Resume (PDF on Google Drive)](https://drive.google.com/file/d/11GB4l1JRNtnnnZkOFcjJAEgG47EZRi4y/view?usp=sharing)
