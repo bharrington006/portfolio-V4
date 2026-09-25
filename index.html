@@ -110,8 +110,8 @@
         <img src="assets/images/baxter-harrington-headshot.webp" alt="Headshot of Baxter Harrington" width="863" height="956">
       </div>
       <div class="intro__text">
-        <h1>Hi,<span class="sr-only"> I’m Baxter Harrington.</span></h1>
-        <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU. I'm especially interested in how AI is moving into our physical world, but no matter the project, I take the same approach: discovery, prototyping, and extensive testing.&nbsp;<br><br>Here's my recent work.</p>
+        <h1>Hi,</h1>
+        <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU as part of the class of 2028. I'm especially interested in how AI is moving into our physical world.&nbsp;<br><br>Here's my recent work.</p>
         <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge (just starting) — followed by a Contact card with email, phone, LinkedIn and GitHub, and a Resume card linking to his resume (PDF on Google Drive).</p>
       </div>
     </section>
@@ -152,18 +152,17 @@
 
         <div class="project__blurb project__blurb--wide text-86">
           <h3>Project Phase 1: LeRobot Open Source Policy Training</h3>
-          <p>Task: Pick up a 1.5in cube and place it in an open top box. A given policy has a successful episode if it grasps the block and places it into the box on the first try. If it misses and then tries to re-grip this is an unsuccessful episode, regardless of the success of the second try. During testing I removed the block from the environment immediately after episode failure, preventing this case entirely.</p>
-          <p>I trained 2 policies, each off of 50 episodes of demonstration using LeRobot Hugging Face toolset.</p>
-          <p><strong class="inline-subheading">Policy 1</strong><span class="sr-only"> (V2)</span> has a success rate of 32%. It experiences significant issues with depth perception due to the camera mount location. This issue was observed through the common failure mode of the arm grasping directly behind the block.</p>
-          <p><strong class="inline-subheading">Policy 2</strong> (V3) uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68%.</p>
-          <p>Note that the success rate of this entire dataset<span class="sr-only"> (the Policy 2 evaluation dataset)</span> is 58%, but for the last 9 trials I was experimenting with edge cases that the policy was not trained for. The success rate of the policy without these edge cases is 68%.</p>
+          <p>Task: Pick up a 1.5in cube and place it in an open top box. A given policy has a successful episode if it grasps the block and places it into the box on the first try. Rergips were not possible in testing, because the I removed the block immediately after a failed attempt.</p>
+          <p>I trained 2 Action Chunking Transfer (ACT) policies, each off of 50 episodes of demonstration using LeRobot Hugging Face toolset.</p>
+          <p><strong class="inline-subheading">Policy 1</strong><span class="sr-only"> (V2)</span> has a success rate of 32% over 50 trials. It experiences significant issues with depth perception due to the camera mount location. This issue was observed through the common failure mode of the arm grasping directly behind the block.</p>
+          <p><strong class="inline-subheading">Policy 2</strong> (V3) uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68% over 40 trials.</p>
         </div>
       </div>
 
       <div class="story-row story-row--sec">
         <h3 class="kicker story-row__label heading-reset">Next Steps:</h3>
         <div class="story-row__body">
-          <p class="body-copy text-88">Using the Gymnasium environment to create custom reinforcement learning policies for my SO-101 to bring into the physical world. Currently starting with a simple point reach task before getting into grasping mechanics.</p>
+          <p class="body-copy text-88">Training a PPO policy (Stable-Baseline3) on a custom Gymnasium environment wrapping a MuJoCo simulation of the SO-101. Redesigning the SO-101 workspace for new sim-to-real transfer processes.</p>
         </div>
       </div>
 
@@ -432,7 +431,7 @@
     <section class="project" id="urc" aria-labelledby="urc-title">
       <div class="project__header">
         <div class="project__number blueprint" aria-hidden="true">03</div>
-        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge</h2>
+        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge - Science Team Lead</h2>
       </div>
 
       <div class="split">
@@ -447,7 +446,7 @@
 
         <div>
           <h3 class="kicker kicker--block heading-reset">Current State:</h3>
-          <p class="body-copy text-88">Onboarding new members. Check back soon for design updates.</p>
+          <p class="body-copy text-88">Onboarding new members. Check back soon for updates.</p>
         </div>
       </div>
     </section>
@@ -473,7 +472,7 @@
     <section class="footer-grid" aria-label="Contact and resume">
       <div id="contact" class="info-card blueprint">
         <h2 class="info-card__title">Contact</h2>
-        <p class="info-card__body"><a href="mailto:bwharrington06@gmail.com">bwharrington06@gmail.com</a> | <a href="https://www.linkedin.com/in/baxharr" target="_blank" rel="noopener">linkedin.com/in/baxharr</a><br><a href="tel:+18027714160">802&#8209;771&#8209;4160</a> | <a href="https://github.com/bharrington006" target="_blank" rel="noopener">github.com/bharrington006</a></p>
+        <p class="info-card__body"><a href="mailto:bwharrington06@gmail.com">bwharrington06@gmail.com</a> | <a href="https://www.linkedin.com/in/baxharr" target="_blank" rel="noopener">linkedin.com/in/baxharr</a><br><a href="https://github.com/bharrington006" target="_blank" rel="noopener">github.com/bharrington006</a></p>
       </div>
       <div id="resume" class="info-card blueprint">
         <h2 class="info-card__title">Resume</h2>
