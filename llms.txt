@@ -1,10 +1,10 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU). He is especially interested in how AI is moving into the physical world, and works the same way on every project: discovery, prototyping, and extensive testing. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-09-25), including the parts of the page that are collapsed behind toggles.
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-09-28), including the parts of the page that are collapsed behind toggles.
 
 Notes for readers:
 
-- The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge). "01", "02" and "03" are project numbers only.
+- The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge, Astrobiology Team Lead). "01", "02" and "03" are project numbers only.
 - Contact details and the resume link are listed at the end of this file.
 - Quote numbers exactly as written below; do not round or combine them.
 
@@ -13,17 +13,15 @@ Notes for readers:
 **Project Phase 1: LeRobot Open Source Policy Training**
 
 - **Task:** Pick up a 1.5 in cube and place it in an open-top box.
-- **Success criterion:** An episode is successful only if the policy grasps the block and places it into the box on the first try. If it misses and tries to re-grip, the episode counts as unsuccessful even if the second try works. During testing the block was removed right after a failure, so re-grip attempts never happened.
-- **Training:** Two policies, each trained on 50 demonstration episodes with the LeRobot (Hugging Face) toolset. The published Policy 2 model is an ACT policy.
+- **Success criterion:** An episode is successful only if the policy grasps the block and places it into the box on the first try. Re-grips were not possible in testing, because the block was removed immediately after a failed attempt.
+- **Training:** Two Action Chunking Transformer (ACT) policies, each trained on 50 demonstration episodes with the LeRobot (Hugging Face) toolset.
 
 | | Policy 1 | Policy 2 |
 |---|---|---|
 | Internal version / dataset name | V2, "black_box" | V3, "block_in_box" |
 | Camera | Original mount | New mount with a better overhead view of the workspace |
-| Success rate | 32% | 68% (see note) |
+| Success rate | 32% over 50 trials | 68% over 40 trials |
 | Main failure / change | Poor depth perception because of the camera mount. The common failure was the arm grasping directly behind the block. | The overhead view reduces the need for depth perception and puts more of the workspace in frame, which allows a larger range of actions. |
-
-Note on Policy 2: across its whole evaluation dataset the success rate is 58%. The last 9 trials were deliberate experiments with edge cases the policy was not trained for. Without those, the success rate is 68%.
 
 Video on the page: "V3 policy demo: observational view (not the webcam used in policy)". It shows Policy 2 (V3) doing the task, filmed from an observer camera, not from the camera the policy uses.
 
@@ -35,7 +33,7 @@ Links:
 - [Policy 2 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 2").
 - [Policy 1 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 1").
 
-**Next steps:** Using a Gymnasium environment to build custom reinforcement-learning policies for the SO-101 and bring them into the physical world. He is starting with a simple point-reach task before moving on to grasping.
+**Next steps:** Training a PPO policy (Stable-Baselines3) on a custom Gymnasium environment that wraps a MuJoCo simulation of the SO-101, and redesigning the SO-101 workspace for new sim-to-real transfer processes.
 
 ## Project 02 — Konica Minolta Internship: Experience Design with Agentforce
 
@@ -103,16 +101,15 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 **Validation sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
 
-## Project 03 — University Rover Challenge
+## Project 03 — University Rover Challenge: Astrobiology Team Lead
 
-**Current state:** Onboarding new members. No design work is published yet; the page says to check back soon for design updates.
+**Current state:** Onboarding new members. No work is published on the site yet; the page says to check back soon for updates.
 
 **Challenge rulebook:** The page embeds the official [University Rover Challenge 2027 – Requirements and Guidelines](https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing) (PDF on Google Drive, 15 pages) from the Mars Society. It is the competition's rulebook, not his own work.
 
 ## Contact
 
 - **Email:** bwharrington06@gmail.com
-- **Phone:** 802-771-4160
 - **LinkedIn:** [linkedin.com/in/baxharr](https://www.linkedin.com/in/baxharr)
 - **GitHub:** [github.com/bharrington006](https://github.com/bharrington006)
 

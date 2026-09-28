@@ -32,14 +32,14 @@
   "@type": "ProfilePage",
   "url": "https://baxterharrington.com/",
   "name": "Baxter Harrington — Portfolio",
-  "dateModified": "2026-09-25",
+  "dateModified": "2026-09-28",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://baxterharrington.com/#person",
     "name": "Baxter Harrington",
     "url": "https://baxterharrington.com/",
     "image": "https://baxterharrington.com/assets/images/baxter-harrington-headshot.webp",
-    "description": "Student of Mechanical Engineering and Human-Computer Interaction at WashU, interested in how AI is moving into the physical world. Works through discovery, prototyping, and extensive testing.",
+    "description": "Student of Mechanical Engineering and Human-Computer Interaction at WashU (class of 2028), interested in how AI is moving into the physical world.",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "Washington University in St. Louis (WashU)" },
     "knowsAbout": ["Mechanical engineering", "Human-computer interaction", "Robot learning", "LeRobot", "Imitation learning (ACT)", "Experience design", "Jobs-to-be-Done interviews", "Salesforce Agentforce", "Prototyping"],
     "sameAs": ["https://huggingface.co/bwharrington"]
@@ -51,7 +51,7 @@
       "position": 1,
       "name": "Project 01 — LeRobot SO-101 Robotic Arm",
       "author": { "@id": "https://baxterharrington.com/#person" },
-      "abstract": "Trained two imitation-learning policies (50 demonstration episodes each) with the LeRobot Hugging Face toolset for a pick-and-place task: pick up a 1.5 in cube and place it in an open-top box on the first try. Policy 1 (internal version V2, 'black_box'): 32% success, limited by depth perception from its camera mount. Policy 2 (internal version V3, 'block_in_box'): new overhead camera mount, 68% success (58% over the whole evaluation dataset, which includes 9 final trials of untrained edge cases). Next step: custom reinforcement-learning policies in a Gymnasium environment, starting with point reaching.",
+      "abstract": "Trained two Action Chunking Transformer (ACT) imitation-learning policies (50 demonstration episodes each) with the LeRobot Hugging Face toolset for a pick-and-place task: pick up a 1.5 in cube and place it in an open-top box on the first try. Policy 1 (internal version V2, 'black_box'): 32% success over 50 trials, limited by depth perception from its camera mount. Policy 2 (internal version V3, 'block_in_box'): new overhead camera mount, 68% success over 40 trials. Next steps: training a PPO policy (Stable-Baselines3) on a custom Gymnasium environment wrapping a MuJoCo simulation of the SO-101, and redesigning the SO-101 workspace for sim-to-real transfer.",
       "keywords": "LeRobot, SO-101, ACT policy, imitation learning, Hugging Face, robotics",
       "associatedMedia": { "@type": "VideoObject", "name": "Policy 2 (V3) demo, observational camera view", "contentUrl": "https://baxterharrington.com/assets/video/so101-policy2-v3-rollout-demo.mp4", "uploadDate": "2026-09-14" },
       "citation": [
@@ -75,9 +75,9 @@
       "@type": "CreativeWork",
       "@id": "https://baxterharrington.com/#urc",
       "position": 3,
-      "name": "Project 03 — University Rover Challenge",
+      "name": "Project 03 — University Rover Challenge: Astrobiology Team Lead",
       "author": { "@id": "https://baxterharrington.com/#person" },
-      "abstract": "Team project for the Mars Society's University Rover Challenge 2027. Current state: onboarding new members; no design work is published yet. The page embeds the official 2027 Requirements and Guidelines rulebook.",
+      "abstract": "Baxter is Astrobiology Team Lead on a team competing in the Mars Society's University Rover Challenge 2027. Current state: onboarding new members; no work is published on the site yet. The page embeds the official 2027 Requirements and Guidelines rulebook.",
       "keywords": "University Rover Challenge, URC 2027, Mars Society, rover",
       "citation": [
         { "@type": "DigitalDocument", "name": "University Rover Challenge 2027 – Requirements and Guidelines (PDF)", "url": "https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing", "encodingFormat": "application/pdf" }
@@ -94,7 +94,7 @@
   <header class="site-header">
     <div class="site-header__inner container">
       <p class="site-header__brand">Baxter Harrington’s Portfolio</p>
-      <p class="site-header__updated"><time datetime="2026-09-25">Last Updated: September 25th, 2026</time></p>
+      <p class="site-header__updated"><time datetime="2026-09-28">Last Updated: September 28th, 2026</time></p>
       <nav class="site-header__nav" aria-label="Site">
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
@@ -112,7 +112,7 @@
       <div class="intro__text">
         <h1>Hi,</h1>
         <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU as part of the class of 2028. I'm especially interested in how AI is moving into our physical world.&nbsp;<br><br>Here's my recent work.</p>
-        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge (just starting) — followed by a Contact card with email, LinkedIn and GitHub, and a Resume card linking to his resume (PDF).</p>
+        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge, where he is Astrobiology Team Lead (just starting) — followed by a Contact card with email, LinkedIn and GitHub, and a Resume card linking to his resume (PDF).</p>
       </div>
     </section>
 
@@ -133,7 +133,7 @@
           </figure>
 
           <div class="policy-links">
-            <h3 class="kicker policy-links__title heading-reset">Policy 2 (V3)<span class="sr-only"> (version V3, “block_in_box”) — links</span></h3>
+            <h3 class="kicker policy-links__title heading-reset">Policy 2 (V3)<span class="sr-only"> (“block_in_box”) — links</span></h3>
             <div class="policy-links__row">
               <a class="btn btn-secondary" href="https://huggingface.co/bwharrington/act_block_in_box_v3" target="_blank" rel="noopener">Policy<span class="sr-only"> 2 trained model: ACT policy “act_block_in_box_v3” on Hugging Face</span></a>
               <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 2 evaluation rollouts, recorded 2026-09-14 (Hugging Face)</span></a>
@@ -431,7 +431,7 @@
     <section class="project" id="urc" aria-labelledby="urc-title">
       <div class="project__header">
         <div class="project__number blueprint" aria-hidden="true">03</div>
-        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge - Science Team Lead</h2>
+        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge - Astrobiology Team Lead</h2>
       </div>
 
       <div class="split">

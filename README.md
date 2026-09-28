@@ -25,6 +25,7 @@ css/style.css                   design-system tokens, components, self-hosted @f
 css/portfolio.css               page layout + the agent-readable helpers (.sr-only, .heading-reset)
 js/main.js                      expand/collapse for the "Full design story" panel
 fonts/                          Barlow / Barlow Condensed (woff2)
+BaxterHarrington-Resume.pdf     resume, linked from the Resume card
 assets/favicon.png, apple-touch-icon.png
 assets/images/baxter-harrington-headshot.webp
 assets/images/odds-and-ends-placeholder.jpg     stand-in for the Odds and Ends tiles (section commented out)
@@ -86,6 +87,6 @@ python3 -m http.server
 ## Deploying
 
 Push the folder as-is to any static host. All pages use `https://baxterharrington.com/`
-as the canonical URL. Hosting note: the apex domain currently answers with a
-**302 to `http://www.`**, which downgrades HTTPS to HTTP. Change it to a 301 to
-`https://baxterharrington.com/` in Cloudflare.
+as the canonical URL. Hosting note: `https://www.baxterharrington.com/` also serves the
+page directly (200) instead of redirecting. The canonical tag covers search engines, but a
+301 from `www` to `https://baxterharrington.com/` in Cloudflare would be cleaner.
