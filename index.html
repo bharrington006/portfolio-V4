@@ -129,11 +129,11 @@
             <div class="media-frame media-frame--arm blueprint">
               <video src="assets/video/so101-policy2-v3-rollout-demo.mp4" autoplay loop muted playsinline controls preload="auto" aria-label="Video: the SO-101 robotic arm running Policy 2 (V3), picking up a cube and placing it in a box, filmed from an observer camera"></video>
             </div>
-            <figcaption class="media-caption media-caption--lg">V3 policy demo: observational view (not the webcam used in policy)</figcaption>
+            <figcaption class="media-caption media-caption--lg">Policy demo: observational view (not the webcam used in policy)</figcaption>
           </figure>
 
           <div class="policy-links">
-            <h3 class="kicker policy-links__title heading-reset">Policy 2 (V3)<span class="sr-only"> (“block_in_box”) — links</span></h3>
+            <h3 class="kicker policy-links__title heading-reset">Policy 2<span class="sr-only"> (“block_in_box”) — links</span></h3>
             <div class="policy-links__row">
               <a class="btn btn-secondary" href="https://huggingface.co/bwharrington/act_block_in_box_v3" target="_blank" rel="noopener">Policy<span class="sr-only"> 2 trained model: ACT policy “act_block_in_box_v3” on Hugging Face</span></a>
               <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 2 evaluation rollouts, recorded 2026-09-14 (Hugging Face)</span></a>
@@ -155,7 +155,7 @@
           <p>Task: Pick up a 1.5in cube and place it in an open top box. A given policy has a successful episode if it grasps the block and places it into the box on the first try. Regrips were not possible in testing, because I removed the block immediately after a failed attempt.</p>
           <p>I trained 2 Action Chunking Transformer (ACT) policies, each off of 50 episodes of demonstration using LeRobot Hugging Face toolset.</p>
           <p><strong class="inline-subheading">Policy 1  </strong> has a success rate of 32% over 50 trials. It experiences significant issues with depth perception due to the camera mount location. This issue was observed through the common failure mode of the arm grasping directly behind the block.</p>
-          <p><strong class="inline-subheading">Policy 2  </strong> (V3) uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68% over 40 trials.</p>
+          <p><strong class="inline-subheading">Policy 2  </strong> uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68% over 40 trials.</p>
         </div>
       </div>
 
@@ -378,7 +378,7 @@
           <div class="story-row__body">
             <p class="body-copy text-88">After identifying the agents to be designed, I honed in on agent A1: Account Intelligence. This agent will provide an account summary right on the salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature would save each sales rep upwards of 20 minutes before each account contact point, saving up to 4 hours of prep time per person every week.</p>
             <p class="body-copy text-88">In addition to these efficiency gains, this agent will evaluate every account against the same criteria, removing the variability that occurs when analysis quality depends on a sales rep's time, attention, or experience.</p>
-            <p class="body-copy text-88">As part of creating an optimized account brief view, additional agents will pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
+            <p class="body-copy text-88">As part of creating an optimized account brief view, additional sub-agents will eventually pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
           </div>
         </div>
 
