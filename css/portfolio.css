@@ -1,18 +1,13 @@
 /* Portfolio — page layout and components for index.html.
    Everything here is built on the tokens in style.css (var(--color-*), var(--font-*), …).
-   Sections: base → agent-readable helpers → header → intro → project sections → Konica Minolta
-   story → odds & ends → contact/resume → responsive. */
+   Sections: base → agent-readable helpers → header → intro → project sections → Konica Minolta →
+   odds & ends → contact/resume → responsive. */
 
 /* ── Base ─────────────────────────────────────────────────────────────────── */
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--color-bg); }
 a { color: var(--color-accent); }
 a:hover { color: var(--color-accent-700); }
-
-@keyframes story-in {
-  from { opacity: 0; transform: translateY(-8px); }
-  to   { opacity: 1; transform: none; }
-}
 
 .page {
   min-height: 100vh;
@@ -196,6 +191,7 @@ a:hover { color: var(--color-accent-700); }
   color: color-mix(in srgb, var(--color-text) 50%, transparent);
 }
 .media-caption--lg { font-size: 15px; }
+.media-caption--above { margin: 0 0 10px; }
 
 /* ── Project sections ─────────────────────────────────────────────────────── */
 .project { padding: 28px 0 30px; }
@@ -266,6 +262,32 @@ a:hover { color: var(--color-accent-700); }
 }
 .policy-links__row .btn { font-size: 20px; }
 
+/* SO-101 results rows below the video/links grid */
+.section-row { margin-top: 44px; }
+.section-row--rule {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--color-divider);
+}
+.so101-cams {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  align-items: start;
+}
+.section-row--tight { margin-top: 24px; }
+.so101-wide .hr { margin: 22px 0; }
+.so101-wide__heading { margin-bottom: calc(var(--space-2) + 10px); }
+.so101-wide .body-copy + .body-copy { margin-top: 14px; }
+
+/* Blueprint frame that keeps the media's own aspect ratio (CAD renders, plots, clips) */
+.media-natural > img,
+.media-natural > video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 /* Extra breathing room below the SO-101 policy buttons before the section divider */
 .hr--policy-gap { margin-top: calc(var(--space-4) + 20px); }
 
@@ -281,98 +303,19 @@ a:hover { color: var(--color-accent-700); }
   gap: 24px;
 }
 
-/* ── Collapsible design story ─────────────────────────────────────────────── */
-/* Collapsed stories are clipped to zero height rather than display:none, so the
-   text is still in the page for agents, search engines and screen readers.
-   Only applies with JS (html.js, set in <head>); without JS the story is open. */
-.story { margin-top: 24px; }
-.js .project:not(.is-open) .story {
-  position: relative; /* contain the absolutely positioned .sr-only spans so overflow clips them */
-  height: 0;
-  margin-top: 0;
-  overflow: hidden;
-  clip-path: inset(50%);
-}
-.js .project.is-open .story { animation: story-in 220ms ease-out both; }
-
-/* The in-progress stories open under a rule */
-.story--wip {
-  margin-top: 20px;
-  border-top: 1px solid var(--color-divider);
-  padding-top: 20px;
-}
-.story__kicker {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-accent-700);
-  margin-bottom: 20px;
-}
-
-/* Toggle row: rule — button + label — rule. Needs JS, so hidden without it. */
-html:not(.js) .story-toggle { display: none; }
-.story-toggle {
-  display: flex;
-  align-items: center;
-  margin-top: 18px;
-}
-.story-toggle__rule {
-  flex: 1;
-  height: 1px;
-  background: var(--color-divider);
-}
-.story-toggle__control {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 9px;
-  margin: 0 24px;
-}
-.story-toggle__btn {
-  width: 46px;
-  height: 46px;
-  display: grid;
-  place-items: center;
-  padding: 0;
-  font: inherit;
-  background: transparent;
-  color: var(--color-accent-700);
-  cursor: pointer;
-}
-.story-toggle__btn:hover {
-  background: color-mix(in srgb, var(--color-accent) 12%, transparent);
-  border-color: var(--color-accent);
-}
-.story-toggle__label {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 10px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--color-neutral-700);
-}
-.story-toggle__label--lg { font-size: 15px; }
-
-/* Open/closed state is a class on the <section>; the button carries both
-   icons and both labels, and CSS shows the pair that matches. */
-.project.is-open .story-toggle__icon--closed,
-.project.is-open .story-toggle__label--closed,
-.project:not(.is-open) .story-toggle__icon--open,
-.project:not(.is-open) .story-toggle__label--open { display: none; }
-
 /* ── Konica Minolta ───────────────────────────────────────────────────────── */
 .km {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 48px;
+  gap: 36px;
   align-items: center;
 }
-.km__process {
-  width: 75%;
-  margin: 0 auto;
+.km-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
+.km-body--tight { gap: 6px; }
 
 .process-list {
   list-style: none;
@@ -489,29 +432,6 @@ html:not(.js) .story-toggle { display: none; }
   fill: var(--color-accent-900);
 }
 
-/* Story rows: label in the left gutter, content in the 75% center column */
-.story-row {
-  display: grid;
-  grid-template-columns: 1fr 75% 1fr;
-  column-gap: 0;
-  row-gap: 20px;
-  padding: 9px 0;
-}
-.story-row--sec {
-  border-top: 1px solid var(--color-divider);
-  padding-top: 22px;
-  margin-top: 16px;
-}
-.story-row:not(.story-row--sec) > * { grid-column: 2; }
-.story-row:not(.story-row--sec) > .story-row__label { text-align: left; }
-.story-row__label { padding-top: 2px; }
-.story-row__body {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.story-row__body--tight { gap: 6px; }
-
 /* Figure 2.2 — job → Agentforce solution map */
 .map {
   position: relative;
@@ -574,14 +494,7 @@ html:not(.js) .story-toggle { display: none; }
 }
 
 /* A1 subagents strip */
-.subagents { padding: 9px 0 14px; }
-.subagents__title {
-  text-align: center;
-  margin-bottom: 14px;
-}
 .subagents__grid {
-  width: 75%;
-  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 1px;
@@ -638,22 +551,23 @@ html:not(.js) .story-toggle { display: none; }
   .intro { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   .intro > .media-frame { width: 296px; max-width: 100%; }
   .triple { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .so101-cams { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
+  .so101-cams > :first-child { grid-column: 1 / -1; }
 }
 
 @media (max-width: 900px) {
-  .story-row,
-  .story-row:not(.story-row--sec) { grid-template-columns: minmax(0, 1fr); gap: 12px; }
-  .story-row:not(.story-row--sec) > * { grid-column: 1; }
   .pair,
   .triple { grid-template-columns: minmax(0, 1fr); }
-  .subagents__grid { width: 100%; grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .km__process { width: 100%; }
+  .subagents__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 720px) {
   .container { padding: 0 20px; }
   .site-header__updated { display: none; }
   .footer-grid { grid-template-columns: minmax(0, 1fr); }
+  .so101-cams { grid-template-columns: minmax(0, 1fr); }
+  .section-row { margin-top: 32px; }
+  .section-row--tight { margin-top: 24px; }
   .map-row { grid-template-columns: minmax(0, 1fr); }
   .map-row--head .map__head-label:last-child,
   .map__arrow { display: none; }

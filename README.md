@@ -1,6 +1,6 @@
 # Portfolio V4
 
-Static portfolio site: plain HTML, CSS and a few lines of JavaScript, with no build step.
+Static portfolio site: plain HTML and CSS, with no JavaScript and no build step.
 V4 started as a rebuild of V2.2 with the same look, so that **AI agents, crawlers and
 screen readers get the same facts a sighted visitor gets from the layout**. It has had
 content updates since.
@@ -10,7 +10,7 @@ content updates since.
 - **Project 01 — LeRobot SO-101 Robotic Arm:** demo video, links to each policy's model,
   dataset and data-analysis spreadsheet (a separate Google Sheet per policy).
 - **Project 02 — Konica Minolta Internship:** process steps, Venn diagram (Figure 2.1),
-  and the collapsible "Full design story".
+  and the design story (always visible).
 - **Project 03 — University Rover Challenge:** the 2027 rulebook embedded from Google Drive,
   and a "Current State" note.
 - **Contact / Resume cards.** Odds and Ends is commented out in `index.html`.
@@ -23,7 +23,6 @@ llms.txt                        full plain-Markdown copy of the page, written fo
 robots.txt, sitemap.xml         crawler entry points (sitemap lists index + llms.txt)
 css/style.css                   design-system tokens, components, self-hosted @font-face
 css/portfolio.css               page layout + the agent-readable helpers (.sr-only, .heading-reset)
-js/main.js                      expand/collapse for the "Full design story" panel
 fonts/                          Barlow / Barlow Condensed (woff2)
 BaxterHarrington-Resume.pdf     resume, linked from the Resume card
 assets/favicon.png, apple-touch-icon.png
@@ -40,9 +39,7 @@ not in this repo. The rulebook is embedded with Drive's `/preview` URL (an ifram
 ## Agent-readability rules (keep these when editing)
 
 1. **Never hide content with `hidden` or `display:none`** if it's real content. Many
-   agents read `innerText` or strip hidden nodes, so that text disappears for them. The design
-   story collapses with a zero-height clip instead (`.js .project:not(.is-open) .story`
-   in `portfolio.css`). Without JS it simply shows open.
+   agents read `innerText` or strip hidden nodes, so that text disappears for them.
 2. **Don't let layout carry meaning on its own.** Anything a human reads from position,
    like which Venn region a word sits in or which button belongs to which policy, needs
    a text equivalent in a `.sr-only` element. `.sr-only` is invisible but still extracted.

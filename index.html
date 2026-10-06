@@ -22,9 +22,6 @@
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/portfolio.css">
-<!-- Flag JS before first paint so the design story starts collapsed without a flash.
-     Without JS the story simply stays open. -->
-<script>document.documentElement.classList.add("js");</script>
 
 <script type="application/ld+json">
 {
@@ -32,7 +29,7 @@
   "@type": "ProfilePage",
   "url": "https://baxterharrington.com/",
   "name": "Baxter Harrington — Portfolio",
-  "dateModified": "2026-09-28",
+  "dateModified": "2026-10-06",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://baxterharrington.com/#person",
@@ -51,7 +48,7 @@
       "position": 1,
       "name": "Project 01 — LeRobot SO-101 Robotic Arm",
       "author": { "@id": "https://baxterharrington.com/#person" },
-      "abstract": "Trained two Action Chunking Transformer (ACT) imitation-learning policies (50 demonstration episodes each) with the LeRobot Hugging Face toolset for a pick-and-place task: pick up a 1.5 in cube and place it in an open-top box on the first try. Policy 1 (internal version V2, 'black_box'): 32% success over 50 trials, limited by depth perception from its camera mount. Policy 2 (internal version V3, 'block_in_box'): new overhead camera mount, 68% success over 40 trials. Next steps: training a PPO policy (Stable-Baselines3) on a custom Gymnasium environment wrapping a MuJoCo simulation of the SO-101, and redesigning the SO-101 workspace for sim-to-real transfer.",
+      "abstract": "Trained two Action Chunking Transformer (ACT) imitation-learning policies (50 teleoperated demonstration episodes each) with the LeRobot Hugging Face toolset for a pick-and-place task: pick up a 1.5 in cube from various positions and orientations and place it in an open-top box on the first attempt. Each policy was evaluated over 50 trials. Policy 1 (V2, 'black_box'): 16/50 (32%); its most common failure was grasping behind the block, traced to poor depth perception from a shallow camera angle. Policy 2 (V3, 'block_in_box'): a redesigned, more overhead camera mount; 29/50 (58%) overall including 9 deliberate edge cases, 28/41 (68%) on standard placements, with grasp-behind-the-block failures dropping from 22 to 4 on standard placements. New failure mode: failures concentrate at and beyond the edge of the training data (1/9 success on the edge cases, episodes 41-49). Rates carry roughly ±13 percentage points of uncertainty. Next steps: a MuJoCo simulation of the SO-101 in a custom Gymnasium environment, first training a PPO policy (Stable-Baselines3) with the block position as state, then sim-to-real with camera input and domain randomization.",
       "keywords": "LeRobot, SO-101, ACT policy, imitation learning, Hugging Face, robotics",
       "associatedMedia": { "@type": "VideoObject", "name": "Policy 2 (V3) demo, observational camera view", "contentUrl": "https://baxterharrington.com/assets/video/so101-policy2-v3-rollout-demo.mp4", "uploadDate": "2026-09-14" },
       "citation": [
@@ -94,7 +91,7 @@
   <header class="site-header">
     <div class="site-header__inner container">
       <p class="site-header__brand">Baxter Harrington’s Portfolio</p>
-      <p class="site-header__updated"><time datetime="2026-09-28">Last Updated: October 5th, 2026</time></p>
+      <p class="site-header__updated"><time datetime="2026-10-06">Last Updated: October 6th, 2026</time></p>
       <nav class="site-header__nav" aria-label="Site">
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
@@ -123,14 +120,33 @@
         <h2 class="project__title" id="so-101-title"><span class="sr-only">Project 01: </span>LeRobot SO-101 Robotic Arm</h2>
       </div>
 
+      <!-- Video | task -->
       <div class="split">
+        <figure>
+          <div class="media-frame media-frame--arm blueprint">
+            <video src="assets/video/so101-policy2-v3-rollout-demo.mp4" autoplay loop muted playsinline controls preload="auto" aria-label="Video: the SO-101 robotic arm running Policy 2 (V3), picking up a cube and placing it in a box, filmed from an observer camera"></video>
+          </div>
+          <figcaption class="media-caption media-caption--lg">Policy demo: observational view (not the webcam used in policy)</figcaption>
+        </figure>
+
+        <div class="project__blurb project__blurb--wide text-86">
+          <h3>Project Phase 1: LeRobot Open Source Policy Training</h3>
+          <p>Task: Pick up a 1.5 in cube from various positions and orientations and place it in an open-top box. A trial counts as a success only if the arm grasps the block and places it in the box on the first attempt. Regrasps were not possible because I removed the block immediately after any failed attempt.</p>
+          <p>I trained two Action Chunking Transformer (ACT) policies with the LeRobot (Hugging Face) toolset, each on 50 teleoperated demonstration episodes. Both were evaluated over 50 trials. Policy 1’s test used only standard placements; Policy 2’s included 9 deliberate edge cases (described below). On comparable placements, success went from 32% (16/50) to 68% (28/41).</p>
+          <p>Naming key: Policy 1 = V2 (“black_box”), Policy 2 = V3 (“block_in_box”). The Hugging Face model and dataset names use the V-numbers.</p>
+        </div>
+      </div>
+
+      <!-- Link buttons | Policy 1 -->
+      <div class="split section-row section-row--rule">
         <div class="split__media">
-          <figure>
-            <div class="media-frame media-frame--arm blueprint">
-              <video src="assets/video/so101-policy2-v3-rollout-demo.mp4" autoplay loop muted playsinline controls preload="auto" aria-label="Video: the SO-101 robotic arm running Policy 2 (V3), picking up a cube and placing it in a box, filmed from an observer camera"></video>
+          <div class="policy-links">
+            <h3 class="kicker policy-links__title heading-reset">Policy 1<span class="sr-only"> (version V2, “black_box”) — links; no model link is published for Policy 1</span></h3>
+            <div class="policy-links__row">
+              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 1 evaluation rollouts, recorded 2026-09-10 (Hugging Face)</span></a>
+              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 1 success-rate spreadsheet (Google Sheets)</span></a>
             </div>
-            <figcaption class="media-caption media-caption--lg">Policy demo: observational view (not the webcam used in policy)</figcaption>
-          </figure>
+          </div>
 
           <div class="policy-links">
             <h3 class="kicker policy-links__title heading-reset">Policy 2<span class="sr-only"> (“block_in_box”) — links</span></h3>
@@ -140,30 +156,61 @@
               <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 2 success-rate spreadsheet (Google Sheets)</span></a>
             </div>
           </div>
-
-          <div class="policy-links">
-            <h3 class="kicker policy-links__title heading-reset">Policy 1<span class="sr-only"> (version V2, “black_box”) — links; no model link is published for Policy 1</span></h3>
-            <div class="policy-links__row">
-              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 1 evaluation rollouts, recorded 2026-09-10 (Hugging Face)</span></a>
-              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 1 success-rate spreadsheet (Google Sheets)</span></a>
-            </div>
-          </div>
         </div>
 
         <div class="project__blurb project__blurb--wide text-86">
-          <h3>Project Phase 1: LeRobot Open Source Policy Training</h3>
-          <p>Task: Pick up a 1.5in cube and place it in an open top box. A given policy has a successful episode if it grasps the block and places it into the box on the first try. Regrips were not possible in testing, because I removed the block immediately after a failed attempt.</p>
-          <p>I trained 2 Action Chunking Transformer (ACT) policies, each off of 50 episodes of demonstration using LeRobot Hugging Face toolset.</p>
-          <p><strong class="inline-subheading">Policy 1  </strong> has a success rate of 32% over 50 trials. It experiences significant issues with depth perception due to the camera mount location. This issue was observed through the common failure mode of the arm grasping directly behind the block.</p>
-          <p><strong class="inline-subheading">Policy 2  </strong> uses a new camera mount that provides a better overhead view of the workspace. This new view both minimizes the need for depth perception and also puts more of the workspace into frame, allowing for a larger array of actions. The success rate of this policy is 68% over 40 trials.</p>
+          <p><strong class="inline-subheading">Policy 1:</strong> 16/50 successful trials (32%).</p>
+          <p>The most common failure was the gripper closing directly behind the block. I traced this to depth perception: from the original camera mount, the policy couldn’t judge how far away the block was because the camera viewed the table from such a shallow angle.</p>
         </div>
       </div>
 
-      <div class="story-row story-row--sec">
-        <h3 class="kicker story-row__label heading-reset">Next Steps:</h3>
-        <div class="story-row__body">
-          <p class="body-copy text-88">Training a PPO policy (Stable-Baselines3) on a custom Gymnasium environment wrapping a MuJoCo simulation of the SO-101. Redesigning the SO-101 workspace for new sim-to-real transfer processes.</p>
+      <!-- Policy 2 text | Policy 1 camera mount | Policy 2 camera mount -->
+      <div class="so101-cams section-row section-row--rule">
+        <div class="project__blurb project__blurb--wide text-86">
+          <p><strong class="inline-subheading">Policy 2:</strong> 29/50 successful trials (58%), including the 9 edge cases; 28/41 (68%) on standard placements.</p>
+          <p>I designed and fabricated a new camera mount with a more overhead view of the workspace. The overhead angle reduces how much the policy depends on depth estimation, and it puts more of the workspace in frame. On standard placements, the grasp-behind-the-block failure dropped from 22 occurrences (Policy 1) to 4 occurrences. Across all 50 Policy 2 trials there were 9 occurrences.</p>
         </div>
+        <figure>
+          <div class="media-natural blueprint">
+            <img src="assets/images/V2Camera.png" alt="CAD side view of the Policy 1 camera mount: a vertical post with the camera at the top, looking across the table at a shallow angle; its field of view is drawn as a long, low triangle." width="1570" height="1076" loading="lazy">
+          </div>
+          <figcaption class="media-caption media-caption--lg">Camera Mount System for Policy 1</figcaption>
+        </figure>
+        <figure>
+          <div class="media-natural blueprint">
+            <img src="assets/images/V3Camera.png" alt="CAD side view of the Policy 2 camera mount: a post with an angled arm that holds the camera out over the workspace, looking down steeply; its field of view is drawn as a triangle pointing down at the table." width="1041" height="1067" loading="lazy">
+          </div>
+          <figcaption class="media-caption media-caption--lg">Camera Mount System for Policy 2</figcaption>
+        </figure>
+      </div>
+
+      <!-- New failure mode text (full width), then start-position plot | episode 21 video -->
+      <div class="project__blurb project__blurb--wide text-86 section-row section-row--rule">
+        <p><strong class="inline-subheading">New failure mode:</strong> failures concentrate at and beyond the edge of the training data.</p>
+        <p>With this stronger policy, I tested how it would perform when the block was outside the area it was trained on. In episodes 41–49, I deliberately placed the block next to the box (marked as squares with black borders). Policy 2 succeeded in only 1 of those 9 trials. Another outlier is episode 21, which sits completely outside of every training demonstration. As the video shows, the arm never reaches beyond the area covered in training and misses the block entirely, even though the arm is physically able to reach the block.</p>
+      </div>
+
+      <div class="split section-row section-row--tight">
+        <figure>
+          <div class="media-natural blueprint">
+            <img src="assets/images/V3Test.png" alt="Policy 2 evaluation: block start positions by outcome, plotted over an overhead photo of the workspace. Green marks are successes and red marks are failures; circles are episodes 0–40, black-bordered squares are episodes 41–49, and small gray dots are training-demonstration start positions. The squares cluster next to the box, outside most of the training positions, and nearly all are red. Episode 21 is a red circle far from every training position." width="1280" height="1030" loading="lazy">
+          </div>
+        </figure>
+
+        <figure>
+          <figcaption class="media-caption media-caption--lg media-caption--above">Policy 2, evaluation episode 21</figcaption>
+          <div class="media-natural blueprint">
+            <video src="assets/video/rollout_block_in_box_v3_ep21.mp4" autoplay loop muted playsinline controls preload="auto" aria-label="Video: Policy 2 evaluation episode 21. The block starts outside every training demonstration; the arm stays within the trained area and misses the block."></video>
+          </div>
+        </figure>
+      </div>
+
+      <div class="so101-wide section-row text-86">
+        <p class="body-copy"><span class="lead-in">Note on sample size:</span> Each policy was tested on 41–50 trials, so these rates carry roughly ±13 percentage points of uncertainty.</p>
+        <hr class="hr">
+        <h3 class="so101-wide__heading">Next Steps</h3>
+        <p class="body-copy">Every improvement so far has required me to teleoperate more demonstrations by hand, and that is now the bottleneck. Training models in simulation will allow me to use orders of magnitude more data points, covering the whole workspace.</p>
+        <p class="body-copy">I’m building a MuJoCo simulation of the SO-101 wrapped in a custom Gymnasium environment. My first goal is a PPO policy (Stable-Baselines3) trained in simulation with the block’s position given directly as state. After that, the harder step is sim-to-real: switching the policy to camera input and using domain randomization so it transfers to the physical arm.</p>
       </div>
 
       <hr class="hr hr--policy-gap">
@@ -287,144 +334,122 @@
         </figure>
       </div>
 
-      <!-- The full design story. Collapsed visually by default (see .story in
-           portfolio.css), but it is never display:none / [hidden]: the text stays
-           in the page so agents, search engines and screen readers can read it
-           without clicking the toggle. -->
-      <div class="story" id="km-story" role="region" aria-label="Konica Minolta internship — full design story">
-        <p class="sr-only">Full design story for Project 02 (Konica Minolta internship). On screen this part is collapsed behind the “Full design story” toggle; its text is included here in full.</p>
-
-        <div class="story-row story-row--sec">
-          <h3 class="kicker story-row__label heading-reset">Designing &amp; prototyping</h3>
-          <div class="story-row__body">
-            <p class="body-copy text-88">The first step of the design was to gather and analyze the data collected through interviews. This yielded an extensive list of jobs and their scope across the three business units. Organizing these jobs into a Venn-Diagram yielded Figure 2.1, shown above.</p>
-            <p class="body-copy text-88">To maximize the value proposition, I focused on creating solutions for the jobs shared across all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. I mapped these shared jobs onto Agentforce solutions that could both increase efficiency and in some cases improve output quality.</p>
-          </div>
+      <div class="section-row section-row--rule">
+        <h3 class="kicker kicker--block heading-reset">Designing &amp; prototyping</h3>
+        <div class="km-body">
+          <p class="body-copy text-88">The first step of the design was to gather and analyze the data collected through interviews. This yielded an extensive list of jobs and their scope across the three business units. Organizing these jobs into a Venn-Diagram yielded Figure 2.1, shown above.</p>
+          <p class="body-copy text-88">To maximize the value proposition, I focused on creating solutions for the jobs shared across all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. I mapped these shared jobs onto Agentforce solutions that could both increase efficiency and in some cases improve output quality.</p>
         </div>
+      </div>
 
-        <figure class="story-row">
-          <figcaption class="kicker story-row__label heading-reset">Figure 2.2<span class="sr-only">: each of the four jobs shared by all three business units (Jobs 1–4), with its current time cost, mapped to the proposed Agentforce agent (A1–A4) that addresses it.</span></figcaption>
-          <div>
-            <div class="map blueprint">
-              <div class="map-row map-row--head" aria-hidden="true">
-                <div class="map__head-label">Central Venn Diagram Job to be Done</div>
-                <div></div>
-                <div class="map__head-label map__head-label--accent">Agentforce Solution</div>
-              </div>
-              <ul class="map__rows" role="list">
-                <li class="map-row">
-                  <div class="map__job">
-                    <div class="map__job-title"><span class="sr-only">Job </span>1. Account prep</div>
-                    <div class="map__job-note"><span class="sr-only">Today: </span>45–90 min per meeting, assembled from 3+ systems</div>
-                  </div>
-                  <span class="sr-only">is addressed by agent</span>
-                  <div class="map__arrow">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                  <div class="map__solution">
-                    <div class="map__solution-title">A1 · Account Intelligence</div>
-                    <div class="map__solution-note">One brief, three role-customized views</div>
-                  </div>
-                </li>
-                <li class="map-row">
-                  <div class="map__job">
-                    <div class="map__job-title"><span class="sr-only">Job </span>2. Worklist construction</div>
-                    <div class="map__job-note"><span class="sr-only">Today: </span>1–2 hrs every Monday morning, one report at a time</div>
-                  </div>
-                  <span class="sr-only">is addressed by agent</span>
-                  <div class="map__arrow">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                  <div class="map__solution">
-                    <div class="map__solution-title">A2 · Proactive Worklist</div>
-                    <div class="map__solution-note">Ranked, cross-checked, pushed not pulled</div>
-                  </div>
-                </li>
-                <li class="map-row">
-                  <div class="map__job">
-                    <div class="map__job-title"><span class="sr-only">Job </span>3. Cross-functional troubleshooting</div>
-                    <div class="map__job-note"><span class="sr-only">Today: </span>15–50 min per billing issue, with no authority to fix it</div>
-                  </div>
-                  <span class="sr-only">is addressed by agent</span>
-                  <div class="map__arrow">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                  <div class="map__solution">
-                    <div class="map__solution-title">A3 · Workflow Orchestration</div>
-                    <div class="map__solution-note">Triage, route, guard, escalate</div>
-                  </div>
-                </li>
-                <li class="map-row">
-                  <div class="map__job">
-                    <div class="map__job-title"><span class="sr-only">Job </span>4. Document synthesis</div>
-                    <div class="map__job-note"><span class="sr-only">Today: </span>5–15 decks a week, system data retyped by hand</div>
-                  </div>
-                  <span class="sr-only">is addressed by agent</span>
-                  <div class="map__arrow">
-                    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </div>
-                  <div class="map__solution">
-                    <div class="map__solution-title">A4 · Artifact Synthesis</div>
-                    <div class="map__solution-note">Drafts only, behind a QA gate</div>
-                  </div>
-                </li>
-              </ul>
+      <figure class="section-row section-row--tight">
+        <figcaption class="kicker kicker--block heading-reset">Figure 2.2<span class="sr-only">: each of the four jobs shared by all three business units (Jobs 1–4), with its current time cost, mapped to the proposed Agentforce agent (A1–A4) that addresses it.</span></figcaption>
+          <div class="map blueprint">
+            <div class="map-row map-row--head" aria-hidden="true">
+              <div class="map__head-label">Central Venn Diagram Job to be Done</div>
+              <div></div>
+              <div class="map__head-label map__head-label--accent">Agentforce Solution</div>
             </div>
+            <ul class="map__rows" role="list">
+              <li class="map-row">
+                <div class="map__job">
+                  <div class="map__job-title"><span class="sr-only">Job </span>1. Account prep</div>
+                  <div class="map__job-note"><span class="sr-only">Today: </span>45–90 min per meeting, assembled from 3+ systems</div>
+                </div>
+                <span class="sr-only">is addressed by agent</span>
+                <div class="map__arrow">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="map__solution">
+                  <div class="map__solution-title">A1 · Account Intelligence</div>
+                  <div class="map__solution-note">One brief, three role-customized views</div>
+                </div>
+              </li>
+              <li class="map-row">
+                <div class="map__job">
+                  <div class="map__job-title"><span class="sr-only">Job </span>2. Worklist construction</div>
+                  <div class="map__job-note"><span class="sr-only">Today: </span>1–2 hrs every Monday morning, one report at a time</div>
+                </div>
+                <span class="sr-only">is addressed by agent</span>
+                <div class="map__arrow">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="map__solution">
+                  <div class="map__solution-title">A2 · Proactive Worklist</div>
+                  <div class="map__solution-note">Ranked, cross-checked, pushed not pulled</div>
+                </div>
+              </li>
+              <li class="map-row">
+                <div class="map__job">
+                  <div class="map__job-title"><span class="sr-only">Job </span>3. Cross-functional troubleshooting</div>
+                  <div class="map__job-note"><span class="sr-only">Today: </span>15–50 min per billing issue, with no authority to fix it</div>
+                </div>
+                <span class="sr-only">is addressed by agent</span>
+                <div class="map__arrow">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="map__solution">
+                  <div class="map__solution-title">A3 · Workflow Orchestration</div>
+                  <div class="map__solution-note">Triage, route, guard, escalate</div>
+                </div>
+              </li>
+              <li class="map-row">
+                <div class="map__job">
+                  <div class="map__job-title"><span class="sr-only">Job </span>4. Document synthesis</div>
+                  <div class="map__job-note"><span class="sr-only">Today: </span>5–15 decks a week, system data retyped by hand</div>
+                </div>
+                <span class="sr-only">is addressed by agent</span>
+                <div class="map__arrow">
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="map__solution">
+                  <div class="map__solution-title">A4 · Artifact Synthesis</div>
+                  <div class="map__solution-note">Drafts only, behind a QA gate</div>
+                </div>
+              </li>
+            </ul>
           </div>
-        </figure>
+      </figure>
 
-        <div class="story-row story-row--sec">
-          <h3 class="kicker story-row__label heading-reset">A1: in focus<span class="sr-only"> (agent A1, Account Intelligence)</span></h3>
-          <div class="story-row__body">
-            <p class="body-copy text-88">After identifying the agents to be designed, I honed in on agent A1: Account Intelligence. This agent will provide an account summary right on the salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature could save each sales rep upwards of 20 minutes before each account contact point, saving an estimated 4 hours of prep time per person every week.</p>
-            <p class="body-copy text-88">In addition to these efficiency gains, this agent will evaluate every account against the same criteria, removing the variability that occurs when analysis quality depends on a sales rep's time, attention, or experience.</p>
-            <p class="body-copy text-88">As part of creating an optimized account brief view, additional sub-agents will eventually pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
-          </div>
+      <div class="section-row section-row--rule">
+        <h3 class="kicker kicker--block heading-reset">A1: in focus<span class="sr-only"> (agent A1, Account Intelligence)</span></h3>
+        <div class="km-body">
+          <p class="body-copy text-88">After identifying the agents to be designed, I honed in on agent A1: Account Intelligence. This agent will provide an account summary right on the salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature could save each sales rep upwards of 20 minutes before each account contact point, saving an estimated 4 hours of prep time per person every week.</p>
+          <p class="body-copy text-88">In addition to these efficiency gains, this agent will evaluate every account against the same criteria, removing the variability that occurs when analysis quality depends on a sales rep's time, attention, or experience.</p>
+          <p class="body-copy text-88">As part of creating an optimized account brief view, additional sub-agents will eventually pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
         </div>
-
-        <div class="subagents">
-          <h4 class="kicker kicker--muted subagents__title heading-reset">A1 subagents<span class="sr-only"> (the five sub-agents that make up agent A1, Account Intelligence)</span></h4>
-          <ul class="subagents__grid" role="list">
-            <li class="subagents__cell">BU 1 Account Brief<span class="sr-only"> (account brief view for Business Unit 1)</span></li>
-            <li class="subagents__cell">BU 2 Account Brief<span class="sr-only"> (account brief view for Business Unit 2)</span></li>
-            <li class="subagents__cell">BU 3 Account Brief<span class="sr-only"> (account brief view for Business Unit 3)</span></li>
-            <li class="subagents__cell">Service History Q&amp;A</li>
-            <li class="subagents__cell">Cross-System Answers</li>
-          </ul>
-        </div>
-
-        <div class="story-row">
-          <h3 class="kicker kicker--muted story-row__label heading-reset">UX rules identified</h3>
-          <div class="story-row__body story-row__body--tight">
-            <p class="body-copy text-88"><span class="lead-in">Push, don’t pull:</span> individuals made it clear that the most impactful and useful tools are the ones that get automatically pushed to their dashboards.</p>
-            <p class="body-copy text-88"><span class="lead-in">One agent, three views:</span> each of the BUs requested different views into the same core data points, so a single agent with individualized sub-agents should be utilized, as they will all be grounded in the same data</p>
-          </div>
-        </div>
-
-        <div class="story-row">
-          <h3 class="kicker kicker--muted story-row__label heading-reset">Prototyping</h3>
-          <p class="body-copy text-88">Using Claude Design I was able to create elaborate prototypes in HTML for the end users to get an accurate understanding of what the user experience will be of the shipped agent. This efficient prototyping process allowed me to create the individualized view for each of the business units.</p>
-        </div>
-
-        <div class="story-row">
-          <h3 class="kicker kicker--muted story-row__label heading-reset">Validation sessions</h3>
-          <p class="body-copy text-88">Returned to the same interview participants with the HTML prototypes for 30 minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
-        </div>
-
       </div>
 
-      <div class="story-toggle">
-        <div class="story-toggle__rule"></div>
-        <div class="story-toggle__control">
-          <span class="story-toggle__label story-toggle__label--lg story-toggle__label--closed" aria-hidden="true">Full design story</span>
-          <span class="story-toggle__label story-toggle__label--lg story-toggle__label--open" aria-hidden="true">Collapse</span>
-          <button type="button" class="story-toggle__btn blueprint" data-story-toggle aria-expanded="false" aria-controls="km-story" title="Konica Minolta Internship — complete design story" aria-label="Show or hide the Konica Minolta internship design story">
-            <svg class="story-toggle__icon--closed" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-            <svg class="story-toggle__icon--open" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg>
-          </button>
-        </div>
-        <div class="story-toggle__rule"></div>
+      <div class="subagents section-row section-row--tight">
+        <h4 class="kicker kicker--muted kicker--block heading-reset">A1 subagents<span class="sr-only"> (the five sub-agents that make up agent A1, Account Intelligence)</span></h4>
+        <ul class="subagents__grid" role="list">
+          <li class="subagents__cell">BU 1 Account Brief<span class="sr-only"> (account brief view for Business Unit 1)</span></li>
+          <li class="subagents__cell">BU 2 Account Brief<span class="sr-only"> (account brief view for Business Unit 2)</span></li>
+          <li class="subagents__cell">BU 3 Account Brief<span class="sr-only"> (account brief view for Business Unit 3)</span></li>
+          <li class="subagents__cell">Service History Q&amp;A</li>
+          <li class="subagents__cell">Cross-System Answers</li>
+        </ul>
       </div>
+
+      <div class="section-row section-row--rule">
+        <h3 class="kicker kicker--block heading-reset">UX rules identified</h3>
+        <div class="km-body km-body--tight">
+          <p class="body-copy text-88"><span class="lead-in">Push, don’t pull:</span> individuals made it clear that the most impactful and useful tools are the ones that get automatically pushed to their dashboards.</p>
+          <p class="body-copy text-88"><span class="lead-in">One agent, three views:</span> each of the BUs requested different views into the same core data points, so a single agent with individualized sub-agents should be utilized, as they will all be grounded in the same data</p>
+        </div>
+      </div>
+
+      <div class="section-row">
+        <h3 class="kicker kicker--block heading-reset">Prototyping</h3>
+        <p class="body-copy text-88">Using Claude Design I was able to create elaborate prototypes in HTML for the end users to get an accurate understanding of what the user experience will be of the shipped agent. This efficient prototyping process allowed me to create the individualized view for each of the business units.</p>
+      </div>
+
+      <div class="section-row">
+        <h3 class="kicker kicker--block heading-reset">Validation sessions</h3>
+        <p class="body-copy text-88">Returned to the same interview participants with the HTML prototypes for 30 minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
+      </div>
+
+      <hr class="hr hr--policy-gap">
     </section>
 
     <!-- ── Project 03 · University Rover Challenge ───────────────────────── -->
@@ -483,6 +508,5 @@
   </main>
 </div>
 <!-- Testing 123 -->
-<script src="js/main.js"></script>
 </body>
 </html>

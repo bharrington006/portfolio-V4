@@ -1,6 +1,6 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-09-28), including the parts of the page that are collapsed behind toggles.
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-06).
 
 Notes for readers:
 
@@ -12,28 +12,40 @@ Notes for readers:
 
 **Project Phase 1: LeRobot Open Source Policy Training**
 
-- **Task:** Pick up a 1.5 in cube and place it in an open-top box.
-- **Success criterion:** An episode is successful only if the policy grasps the block and places it into the box on the first try. Re-grips were not possible in testing, because the block was removed immediately after a failed attempt.
-- **Training:** Two Action Chunking Transformer (ACT) policies, each trained on 50 demonstration episodes with the LeRobot (Hugging Face) toolset.
+- **Task:** Pick up a 1.5 in cube from various positions and orientations and place it in an open-top box.
+- **Success criterion:** A trial counts as a success only if the arm grasps the block and places it in the box on the first attempt. Regrasps were not possible, because the block was removed immediately after any failed attempt.
+- **Training:** Two Action Chunking Transformer (ACT) policies, each trained on 50 teleoperated demonstration episodes with the LeRobot (Hugging Face) toolset.
+- **Evaluation:** Both policies were evaluated over 50 trials. Policy 1's test used only standard placements; Policy 2's included 9 deliberate edge cases. On comparable placements, success went from 32% (16/50) to 68% (28/41).
+- **Naming key:** Policy 1 = V2 ("black_box"), Policy 2 = V3 ("block_in_box"). The Hugging Face model and dataset names use the V-numbers.
 
 | | Policy 1 | Policy 2 |
 |---|---|---|
 | Internal version / dataset name | V2, "black_box" | V3, "block_in_box" |
-| Camera | Original mount | New mount with a better overhead view of the workspace |
-| Success rate | 32% over 50 trials | 68% over 40 trials |
-| Main failure / change | Poor depth perception because of the camera mount. The common failure was the arm grasping directly behind the block. | The overhead view reduces the need for depth perception and puts more of the workspace in frame, which allows a larger range of actions. |
+| Camera | Original mount, viewing the table at a shallow angle | Redesigned and fabricated mount with a more overhead view |
+| Success rate | 16/50 (32%) | 29/50 (58%) including the 9 edge cases; 28/41 (68%) on standard placements |
+| Grasp-behind-the-block failures | 22 | 4 on standard placements; 9 across all 50 trials |
 
-Video on the page: "V3 policy demo: observational view (not the webcam used in policy)". It shows Policy 2 (V3) doing the task, filmed from an observer camera, not from the camera the policy uses.
+**Policy 1.** The most common failure was the gripper closing directly behind the block. Baxter traced this to depth perception: from the original camera mount, the policy couldn't judge how far away the block was because the camera viewed the table from such a shallow angle.
+
+**Policy 2.** He designed and fabricated a new camera mount with a more overhead view of the workspace. The overhead angle reduces how much the policy depends on depth estimation, and it puts more of the workspace in frame.
+
+Figures on the page: "Camera Mount System for Policy 1" and "Camera Mount System for Policy 2" (CAD side views of the two mounts and their fields of view), and a plot titled "Policy 2 evaluation: start positions by outcome" (block start positions over an overhead photo; green = success, red = failure; circles = episodes 0–40, black-bordered squares = episodes 41–49, gray dots = training-dataset positions).
+
+**New failure mode: failures concentrate at and beyond the edge of the training data.** With this stronger policy, he tested how it would perform when the block was outside the area it was trained on. In episodes 41–49, he deliberately placed the block next to the box (the black-bordered squares). Policy 2 succeeded in only 1 of those 9 trials. Another outlier is episode 21, which sits completely outside of every training demonstration. As the episode 21 video on the page shows, the arm never reaches beyond the area covered in training and misses the block entirely, even though the arm is physically able to reach the block.
+
+**Note on sample size:** Each policy was tested on 41–50 trials, so these rates carry roughly ±13 percentage points of uncertainty.
+
+Videos on the page: "Policy demo: observational view (not the webcam used in policy)", showing Policy 2 doing the task, filmed from an observer camera rather than the camera the policy uses; and "Policy 2, evaluation episode 21".
 
 Links:
 
+- [Policy 1 evaluation rollouts: rollout_black_box_v2_20260910_180804](https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804): Hugging Face dataset (labelled "Dataset" under "Policy 1"). No model link is published for Policy 1.
+- [Policy 1 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 1").
 - [Policy 2 trained model: act_block_in_box_v3](https://huggingface.co/bwharrington/act_block_in_box_v3): Hugging Face model (labelled "Policy" under "Policy 2").
 - [Policy 2 evaluation rollouts: rollout_block_in_box_v3_20260914_215923](https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923): Hugging Face dataset (labelled "Dataset" under "Policy 2").
-- [Policy 1 evaluation rollouts: rollout_black_box_v2_20260910_180804](https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804): Hugging Face dataset (labelled "Dataset" under "Policy 1"). No model link is published for Policy 1.
 - [Policy 2 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 2").
-- [Policy 1 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 1").
 
-**Next steps:** Training a PPO policy (Stable-Baselines3) on a custom Gymnasium environment that wraps a MuJoCo simulation of the SO-101, and redesigning the SO-101 workspace for new sim-to-real transfer processes.
+**Next steps:** Every improvement so far has required teleoperating more demonstrations by hand, and that is now the bottleneck. Training models in simulation will allow orders of magnitude more data points, covering the whole workspace. He is building a MuJoCo simulation of the SO-101 wrapped in a custom Gymnasium environment. The first goal is a PPO policy (Stable-Baselines3) trained in simulation with the block's position given directly as state. After that, the harder step is sim-to-real: switching the policy to camera input and using domain randomization so it transfers to the physical arm.
 
 ## Project 02 — Konica Minolta Internship: Experience Design with Agentforce
 
@@ -67,9 +79,7 @@ Four 1-hour discovery interviews with individuals across three business units. T
 | Business Units 2 & 3 (not 1) | CSM coordination; Adoption |
 | All three (center) | 1. Account prep; 2. Worklist construction; 3. Cross-functional troubleshooting; 4. Document synthesis |
 
-### Full design story
-
-(On the web page this part is collapsed behind a "Full design story" toggle.)
+### Design story
 
 **Designing & prototyping.** The first step was to gather and analyze the interview data. This produced a long list of jobs and their scope across the three business units, which he organized into the Venn diagram in Figure 2.1. To get the most value, he focused on the jobs shared by all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. He mapped these shared jobs onto Agentforce solutions that could increase efficiency and, in some cases, improve output quality.
 
