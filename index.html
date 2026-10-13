@@ -29,7 +29,7 @@
   "@type": "ProfilePage",
   "url": "https://baxterharrington.com/",
   "name": "Baxter Harrington — Portfolio",
-  "dateModified": "2026-10-12",
+  "dateModified": "2026-10-13",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://baxterharrington.com/#person",
@@ -86,7 +86,7 @@
       "position": 4,
       "name": "Odds and Ends: Repurposed Wood Projects",
       "author": { "@id": "https://baxterharrington.com/#person" },
-      "abstract": "Three woodworking projects. Watch Stand: scrap wood cut and filed to rounded edges, peg and glue construction, with a fleece sleeve also sewn in house. Grill Table: scrap wood and screws, design inspired by a folding TV tray table. Music Stand: all wood sourced from a single discarded pallet.",
+      "abstract": "Three woodworking projects. Watch Stand: scrap wood cut and filed to rounded edges, peg and glue construction, with a fleece sleeve also sewn by hand. Grill Table: scrap wood and screws, design inspired by a folding TV tray table. Music Stand: all wood sourced from a single discarded pallet.",
       "keywords": "woodworking, repurposed wood, pallet wood, furniture"
     }
   ]
@@ -100,7 +100,7 @@
   <header class="site-header">
     <div class="site-header__inner container">
       <p class="site-header__brand">Baxter Harrington’s Portfolio</p>
-      <p class="site-header__updated"><time datetime="2026-10-12">Last Updated: October 12th, 2026</time></p>
+      <p class="site-header__updated"><time datetime="2026-10-13">Last Updated: October 13th, 2026</time></p>
       <nav class="site-header__nav" aria-label="Site">
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
@@ -118,7 +118,7 @@
       <div class="intro__text">
         <h1>Hi,</h1>
         <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU as part of the class of 2028. I built and trained a robot arm to pick and place objects, lead the science module team for our Mars rover, and designed AI agents from user research at Konica Minolta. I’m looking for Summer 2027 internships in robotics, embodied AI, or AI product.&nbsp;<br><br>Here's my recent work.</p>
-        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge, where he is Science Module Engineering Lead — followed by an Odds and Ends section (three repurposed-wood projects: a watch stand, a grill table and a music stand), then a Contact card with email, LinkedIn and GitHub, and a Resume card linking to his resume (PDF).</p>
+        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge, where he is Science Module Engineering Lead — followed by an Odds and Ends section (three repurposed-wood projects: a watch stand, a grill table and a music stand), then a Contact card with email, LinkedIn, GitHub and Hugging Face, and a Resume card linking to his resume (PDF).</p>
       </div>
     </section>
 
@@ -131,7 +131,7 @@
         <h2 class="project__title" id="so-101-title"><span class="sr-only">Project 01: </span>LeRobot SO-101 Robotic Arm</h2>
       </div>
 
-      <!-- Video | task -->
+      <!-- Video | task + Policy 1 -->
       <div class="split">
         <figure>
           <div class="media-frame media-frame--arm blueprint">
@@ -143,34 +143,13 @@
         <div class="project__blurb project__blurb--wide text-86">
           <h3>Project Phase 1: LeRobot Open Source Policy Training</h3>
           <p>Task: Pick up a 1.5 in cube from various positions and orientations and place it in an open-top box. A trial counts as a success only if the arm grasps the block and places it in the box on the first attempt. Regrasps were not possible because I removed the block immediately after any failed attempt.</p>
-          <p>I trained two Action Chunking Transformer (ACT) policies with the LeRobot (Hugging Face) toolset, each on 50 teleoperated demonstration episodes. Both were evaluated over 50 trials. Policy 1’s test used only standard placements; Policy 2’s included 9 deliberate edge cases (described below). On comparable placements, success went from 32% (16/50) to 68% (28/41).</p>
-          <p>Naming key: Policy 1 = V2 (“black_box”), Policy 2 = V3 (“block_in_box”). The Hugging Face model and dataset names use the V-numbers.</p>
-        </div>
-      </div>
-
-      <!-- Link buttons | Policy 1 -->
-      <div class="split section-row section-row--rule">
-        <div class="split__media">
-          <div class="policy-links">
-            <h3 class="kicker policy-links__title heading-reset">Policy 1<span class="sr-only"> (version V2, “black_box”) — links; no model link is published for Policy 1</span></h3>
-            <div class="policy-links__row">
-              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 1 evaluation rollouts, recorded 2026-09-10 (Hugging Face)</span></a>
-              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 1 success-rate spreadsheet (Google Sheets)</span></a>
-            </div>
+          <p>I trained two Action Chunking Transformer (ACT) policies with the LeRobot (Hugging Face) toolset, each on 50 teleoperated demonstration episodes. Both were evaluated over 50 trials. Policy 1’s test used only standard placements; Policy 2’s included 9 deliberate edge cases (described below). On comparable placements, success went from 32% (16/50) to 68% (28/41).<span class="sr-only"> Naming key: Policy 1 = V2 (“black_box”), Policy 2 = V3 (“block_in_box”). The Hugging Face model and dataset names use the V-numbers.</span></p>
+          <p class="policy-result"><strong class="inline-subheading">Policy 1:</strong> 16/50 successful trials (32%).</p>
+          <div class="policy-links__row policy-links__row--inline">
+            <span class="sr-only">Policy 1 (version V2, “black_box”) links; no model link is published for Policy 1:</span>
+            <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_black_box_v2_20260910_180804" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 1 evaluation rollouts, recorded 2026-09-10 (Hugging Face)</span></a>
+            <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/11R8Y6-3RziLNeyDrt56bI77SEeSNKwdCRrPSrBY6MoU/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 1 success-rate spreadsheet (Google Sheets)</span></a>
           </div>
-
-          <div class="policy-links">
-            <h3 class="kicker policy-links__title heading-reset">Policy 2<span class="sr-only"> (“block_in_box”) — links</span></h3>
-            <div class="policy-links__row">
-              <a class="btn btn-secondary" href="https://huggingface.co/bwharrington/act_block_in_box_v3" target="_blank" rel="noopener">Policy<span class="sr-only"> 2 trained model: ACT policy “act_block_in_box_v3” on Hugging Face</span></a>
-              <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 2 evaluation rollouts, recorded 2026-09-14 (Hugging Face)</span></a>
-              <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 2 success-rate spreadsheet (Google Sheets)</span></a>
-            </div>
-          </div>
-        </div>
-
-        <div class="project__blurb project__blurb--wide text-86">
-          <p><strong class="inline-subheading">Policy 1:</strong> 16/50 successful trials (32%).</p>
           <p>The most common failure was the gripper closing directly behind the block. I traced this to depth perception: from the original camera mount, the policy couldn’t judge how far away the block was because the camera viewed the table from such a shallow angle.</p>
         </div>
       </div>
@@ -179,6 +158,12 @@
       <div class="so101-cams section-row section-row--rule">
         <div class="project__blurb project__blurb--wide text-86">
           <p><strong class="inline-subheading">Policy 2:</strong> 29/50 successful trials (58%), including the 9 edge cases; 28/41 (68%) on standard placements.</p>
+          <div class="policy-links__row policy-links__row--inline">
+            <span class="sr-only">Policy 2 (version V3, “block_in_box”) links:</span>
+            <a class="btn btn-secondary" href="https://huggingface.co/bwharrington/act_block_in_box_v3" target="_blank" rel="noopener">Policy<span class="sr-only"> 2 trained model: ACT policy “act_block_in_box_v3” on Hugging Face</span></a>
+            <a class="btn btn-secondary" href="https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923" target="_blank" rel="noopener">Dataset<span class="sr-only">: Policy 2 evaluation rollouts, recorded 2026-09-14 (Hugging Face)</span></a>
+            <a class="btn btn-secondary" href="https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing" target="_blank" rel="noopener">Data Analysis<span class="sr-only">: Policy 2 success-rate spreadsheet (Google Sheets)</span></a>
+          </div>
           <p>I designed and fabricated a new camera mount with a more overhead view of the workspace. The overhead angle reduces how much the policy depends on depth estimation, and it puts more of the workspace in frame. On standard placements, the grasp-behind-the-block failure dropped from 22 occurrences (Policy 1) to 4 occurrences. Across all 50 Policy 2 trials there were 9 occurrences.</p>
         </div>
         <figure>
@@ -248,7 +233,7 @@
             </li>
             <li class="process-list__item">
               <span class="process-list__num"><span class="sr-only">Step </span>02</span>
-              <p class="process-list__text"><span class="lead-in">Prototyping:</span> I used this knowledge of workflows and painpoints to develop agent concepts, built cheaply in Claude Design</p>
+              <p class="process-list__text"><span class="lead-in">Prototyping:</span> I used this knowledge of workflows and pain points to develop agent concepts, built cheaply in Claude Design</p>
             </li>
             <li class="process-list__item">
               <span class="process-list__num"><span class="sr-only">Step </span>03</span>
@@ -257,7 +242,7 @@
           </ol>
 
           <h3 class="kicker kicker--block heading-reset">Discovery</h3>
-          <p class="body-copy text-88">I conducted four 1 hour discovery interviews with individuals across three business units. The interviews held a conversational format using the Jobs-to-be-Done framework to understand current workflows and pain points. The goal for this project was to design around how our sales reps actually work, not how we assumed they would use the new Agentforce platform.</p>
+          <p class="body-copy text-88">I conducted four 1-hour discovery interviews with individuals across three business units. The interviews held a conversational format using the Jobs-to-be-Done framework to understand current workflows and pain points. The goal for this project was to design around how our sales reps actually work, not how we assumed they would use the new Agentforce platform.</p>
         </div>
 
         <figure class="km__figure" aria-labelledby="fig-2-1-caption">
@@ -349,13 +334,13 @@
       <div class="section-row section-row--rule">
         <h3 class="kicker kicker--block heading-reset">Designing &amp; prototyping</h3>
         <div class="km-body">
-          <p class="body-copy text-88">The first step of the design was to gather and analyze the data collected through interviews. This yielded an extensive list of jobs and their scope across the three business units. Organizing these jobs into a Venn-Diagram yielded Figure 2.1, shown above.</p>
+          <p class="body-copy text-88">The first step of the design was to gather and analyze the data collected through interviews. This yielded an extensive list of jobs and their scope across the three business units. Organizing these jobs into a Venn diagram yielded Figure 2.1, shown above.</p>
           <p class="body-copy text-88">To maximize the value proposition, I focused on creating solutions for the jobs shared across all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. I mapped these shared jobs onto Agentforce solutions that could both increase efficiency and in some cases improve output quality.</p>
         </div>
       </div>
 
       <figure class="section-row section-row--tight">
-        <figcaption class="kicker kicker--block heading-reset">Figure 2.2<span class="sr-only">: each of the four jobs shared by all three business units (Jobs 1–4), with its current time cost, mapped to the proposed Agentforce agent (A1–A4) that addresses it.</span></figcaption>
+        <figcaption class="kicker kicker--block heading-reset">Figure 2.2: Mapping Jobs to Agents<span class="sr-only">: each of the four jobs shared by all three business units (Jobs 1–4), with its current time cost, mapped to the proposed Agentforce agent (A1–A4) that addresses it.</span></figcaption>
           <div class="map blueprint">
             <div class="map-row map-row--head" aria-hidden="true">
               <div class="map__head-label">Central Venn Diagram Job to be Done</div>
@@ -426,9 +411,9 @@
       <div class="section-row section-row--rule">
         <h3 class="kicker kicker--block heading-reset">A1: in focus<span class="sr-only"> (agent A1, Account Intelligence)</span></h3>
         <div class="km-body">
-          <p class="body-copy text-88">After identifying the agents to be designed, I honed in on agent A1: Account Intelligence. This agent will provide an account summary right on the salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature could save each sales rep upwards of 20 minutes before each account contact point, saving an estimated 4 hours of prep time per person every week.</p>
+          <p class="body-copy text-88">After identifying the agents to be designed, I homed in on agent A1: Account Intelligence. This agent will provide an account summary right on the Salesforce account landing page, pulling the specific metrics that the end users voiced in discovery in order to give them the view that will provide them with the most value. The discovery interviews laid bare that an agent of this nature could save each sales rep upwards of 20 minutes before each account contact point, saving an estimated 4 hours of prep time per person every week.</p>
           <p class="body-copy text-88">In addition to these efficiency gains, this agent will evaluate every account against the same criteria, removing the variability that occurs when analysis quality depends on a sales rep's time, attention, or experience.</p>
-          <p class="body-copy text-88">As part of creating an optimized account brief view, additional sub-agents will eventually pull service history from a customer's devices, and data from other systems outside of salesforce.</p>
+          <p class="body-copy text-88">As part of creating an optimized account brief view, additional sub-agents will eventually pull service history from a customer's devices, and data from other systems outside of Salesforce.</p>
         </div>
       </div>
 
@@ -458,7 +443,7 @@
 
       <div class="section-row">
         <h3 class="kicker kicker--block heading-reset">Validation sessions</h3>
-        <p class="body-copy text-88">Returned to the same interview participants with the HTML prototypes for 30 minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
+        <p class="body-copy text-88">I returned to the same interview participants with the HTML prototypes for 30-minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
       </div>
 
     </section>
@@ -472,7 +457,7 @@
         <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge</h2>
       </div>
 
-      <div class="split">
+      <div class="split split--rulebook">
         <div class="split__media">
           <div>
             <h3 class="kicker kicker--block heading-reset">2027 Challenge Rulebook</h3>
@@ -519,13 +504,13 @@
           <div class="media-frame media-frame--odds blueprint">
             <img src="assets/images/watchStand.png" alt="Watch stand made from scrap wood: a rounded wooden post on a rectangular base, with a gray fleece-covered cushion holding a steel dive watch." loading="lazy">
           </div>
-          <figcaption class="odds__caption text-86"><span class="lead-in">Watch Stand:</span> Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn in house.</figcaption>
+          <figcaption class="odds__caption text-86"><span class="lead-in">Watch Stand:</span> Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn by hand.</figcaption>
         </figure>
         <figure>
           <div class="media-frame media-frame--odds blueprint">
             <img src="assets/images/grill.png" alt="Grill table made from scrap wood: a tabletop on crossed, X-shaped legs joined by a lower rail, holding a portable stainless-steel propane grill." loading="lazy">
           </div>
-          <figcaption class="odds__caption text-86"><span class="lead-in">Grill Table:</span> Scrap wood and screws. Design inspiration from folding tv tray table.</figcaption>
+          <figcaption class="odds__caption text-86"><span class="lead-in">Grill Table:</span> Scrap wood and screws. Design inspiration from folding TV tray table.</figcaption>
         </figure>
         <figure>
           <div class="media-frame media-frame--odds blueprint">
@@ -540,7 +525,7 @@
     <section class="footer-grid" aria-label="Contact and resume">
       <div id="contact" class="info-card blueprint">
         <h2 class="info-card__title">Contact</h2>
-        <p class="info-card__body"><a href="mailto:bwharrington06@gmail.com">bwharrington06@gmail.com</a> | <a href="https://www.linkedin.com/in/baxharr" target="_blank" rel="noopener">linkedin.com/in/baxharr</a><br><a href="https://github.com/bharrington006" target="_blank" rel="noopener">github.com/bharrington006</a></p>
+        <p class="info-card__body"><a href="mailto:bwharrington06@gmail.com">bwharrington06@gmail.com</a> | <a href="https://www.linkedin.com/in/baxharr" target="_blank" rel="noopener">linkedin.com/in/baxharr</a><br><a href="https://github.com/bharrington006" target="_blank" rel="noopener">github.com/bharrington006</a> | <a href="https://huggingface.co/bwharrington" target="_blank" rel="noopener">huggingface.co/bwharrington</a></p>
       </div>
       <div id="resume" class="info-card blueprint">
         <h2 class="info-card__title">Resume</h2>

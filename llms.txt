@@ -1,6 +1,6 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world, and is looking for Summer 2027 internships in robotics, embodied AI, or AI product. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-12).
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world, and is looking for Summer 2027 internships in robotics, embodied AI, or AI product. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-13).
 
 Notes for readers:
 
@@ -123,8 +123,8 @@ Figures on the page: "Spring 2026 CAD Assembly" (CAD render of the science modul
 
 ## Odds and Ends: Repurposed Wood Projects
 
-- **Watch Stand:** Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn in house.
-- **Grill Table:** Scrap wood and screws. Design inspiration from folding tv tray table.
+- **Watch Stand:** Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn by hand.
+- **Grill Table:** Scrap wood and screws. Design inspiration from folding TV tray table.
 - **Music Stand:** All wood sourced from a single discarded pallet.
 
 ## Contact
@@ -132,6 +132,7 @@ Figures on the page: "Spring 2026 CAD Assembly" (CAD render of the science modul
 - **Email:** bwharrington06@gmail.com
 - **LinkedIn:** [linkedin.com/in/baxharr](https://www.linkedin.com/in/baxharr)
 - **GitHub:** [github.com/bharrington006](https://github.com/bharrington006)
+- **Hugging Face:** [huggingface.co/bwharrington](https://huggingface.co/bwharrington)
 
 ## Resume
 
