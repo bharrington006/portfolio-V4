@@ -27,8 +27,11 @@ fonts/                          Barlow / Barlow Condensed (woff2)
 BaxterHarrington-Resume.pdf     resume, linked from the Resume card
 assets/favicon.png, apple-touch-icon.png
 assets/images/baxter-harrington-headshot.webp
-assets/images/odds-and-ends-placeholder.jpg     stand-in for the Odds and Ends tiles (section commented out)
+assets/images/V2Camera.png, V3Camera.png, V3Test.png      SO-101 camera mounts + Policy 2 start-position plot
+assets/images/Y1RoverCAD.png, ScoopTB.png              URC Spring 2026 CAD + scoop test bench
+assets/images/watchStand.png, grill.png, musicStand.png  Odds and Ends tiles
 assets/video/so101-policy2-v3-rollout-demo.mp4  SO-101 Policy 2 (V3) demo
+assets/video/rollout_block_in_box_v3_ep21.mp4   SO-101 Policy 2 evaluation episode 21
 ```
 
 External files: the URC rulebook PDF and the data-analysis spreadsheets live on Google Drive,
@@ -70,9 +73,6 @@ The "last updated" date appears in five places; change them together:
 
 - **JSON-LD contact details:** the Contact card is filled in, but the JSON-LD `Person` only
   lists Hugging Face in `sameAs`. Add LinkedIn, GitHub and `email`.
-- **Odds and Ends:** commented out. If you bring it back, replace
-  `odds-and-ends-placeholder.jpg` with descriptively named images with `alt` text, drop its
-  `.sr-only` "Not yet filled in" note, and add it back to the intro summary and `llms.txt`.
 - **Project 03:** add design updates once the team is onboarded.
 
 ## Preview locally

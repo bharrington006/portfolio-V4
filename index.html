@@ -29,14 +29,14 @@
   "@type": "ProfilePage",
   "url": "https://baxterharrington.com/",
   "name": "Baxter Harrington — Portfolio",
-  "dateModified": "2026-10-06",
+  "dateModified": "2026-10-12",
   "mainEntity": {
     "@type": "Person",
     "@id": "https://baxterharrington.com/#person",
     "name": "Baxter Harrington",
     "url": "https://baxterharrington.com/",
     "image": "https://baxterharrington.com/assets/images/baxter-harrington-headshot.webp",
-    "description": "Student of Mechanical Engineering and Human-Computer Interaction at WashU (class of 2028), interested in how AI is moving into the physical world.",
+    "description": "Student of Mechanical Engineering and Human-Computer Interaction at WashU (class of 2028), interested in how AI is moving into the physical world. Looking for Summer 2027 internships in robotics, embodied AI, or AI product.",
     "affiliation": { "@type": "CollegeOrUniversity", "name": "Washington University in St. Louis (WashU)" },
     "knowsAbout": ["Mechanical engineering", "Human-computer interaction", "Robot learning", "LeRobot", "Imitation learning (ACT)", "Experience design", "Jobs-to-be-Done interviews", "Salesforce Agentforce", "Prototyping"],
     "sameAs": ["https://huggingface.co/bwharrington"]
@@ -72,13 +72,22 @@
       "@type": "CreativeWork",
       "@id": "https://baxterharrington.com/#urc",
       "position": 3,
-      "name": "Project 03 — University Rover Challenge: Astrobiology Team Lead",
+      "name": "Project 03 — University Rover Challenge: Science Module Engineering Lead",
       "author": { "@id": "https://baxterharrington.com/#person" },
-      "abstract": "Baxter is Astrobiology Team Lead on a team competing in the Mars Society's University Rover Challenge 2027. Current state: onboarding new members; no work is published on the site yet. The page embeds the official 2027 Requirements and Guidelines rulebook.",
+      "abstract": "Baxter is Science Module Engineering Lead on a team competing in the Mars Society's University Rover Challenge 2027. As of mid October 2026 he is running trials of chemical tests that could indicate active life in soil samples, finishing preliminary CAD designs and ordering parts. His Spring 2026 prototype had far too much mass to be viable, because budget constraints left 30mm aluminum extrusion as the only structural option; the one element carrying over to 2027 is the topsoil scoops, designed to deposit their soil sample at a greater distance than they collect it from. The page also embeds the official 2027 Requirements and Guidelines rulebook.",
       "keywords": "University Rover Challenge, URC 2027, Mars Society, rover",
       "citation": [
         { "@type": "DigitalDocument", "name": "University Rover Challenge 2027 – Requirements and Guidelines (PDF)", "url": "https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing", "encodingFormat": "application/pdf" }
       ]
+    },
+    {
+      "@type": "CreativeWork",
+      "@id": "https://baxterharrington.com/#odds-and-ends",
+      "position": 4,
+      "name": "Odds and Ends: Repurposed Wood Projects",
+      "author": { "@id": "https://baxterharrington.com/#person" },
+      "abstract": "Three woodworking projects. Watch Stand: scrap wood cut and filed to rounded edges, peg and glue construction, with a fleece sleeve also sewn in house. Grill Table: scrap wood and screws, design inspired by a folding TV tray table. Music Stand: all wood sourced from a single discarded pallet.",
+      "keywords": "woodworking, repurposed wood, pallet wood, furniture"
     }
   ]
 }
@@ -91,7 +100,7 @@
   <header class="site-header">
     <div class="site-header__inner container">
       <p class="site-header__brand">Baxter Harrington’s Portfolio</p>
-      <p class="site-header__updated"><time datetime="2026-10-06">Last Updated: October 6th, 2026</time></p>
+      <p class="site-header__updated"><time datetime="2026-10-12">Last Updated: October 12th, 2026</time></p>
       <nav class="site-header__nav" aria-label="Site">
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
@@ -108,10 +117,12 @@
       </div>
       <div class="intro__text">
         <h1>Hi,</h1>
-        <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU as part of the class of 2028. I'm especially interested in how AI is moving into our physical world.&nbsp;<br><br>Here's my recent work.</p>
-        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge, where he is Astrobiology Team Lead (just starting) — followed by a Contact card with email, LinkedIn and GitHub, and a Resume card linking to his resume (PDF).</p>
+        <p class="intro__lead text-86">My name is Baxter Harrington and I am studying Mechanical Engineering and Human Computer Interaction at WashU as part of the class of 2028. I built and trained a robot arm to pick and place objects, lead the science module team for our Mars rover, and designed AI agents from user research at Konica Minolta. I’m looking for Summer 2027 internships in robotics, embodied AI, or AI product.&nbsp;<br><br>Here's my recent work.</p>
+        <p class="sr-only">This page has three projects — Project 01: LeRobot SO-101 Robotic Arm, Project 02: Konica Minolta Internship, and Project 03: University Rover Challenge, where he is Science Module Engineering Lead — followed by an Odds and Ends section (three repurposed-wood projects: a watch stand, a grill table and a music stand), then a Contact card with email, LinkedIn and GitHub, and a Resume card linking to his resume (PDF).</p>
       </div>
     </section>
+
+    <div class="section-break" aria-hidden="true"></div>
 
     <!-- ── Project 01 · LeRobot SO-101 ───────────────────────────────────── -->
     <section class="project" id="so-101" aria-labelledby="so-101-title">
@@ -213,8 +224,9 @@
         <p class="body-copy">I’m building a MuJoCo simulation of the SO-101 wrapped in a custom Gymnasium environment. My first goal is a PPO policy (Stable-Baselines3) trained in simulation with the block’s position given directly as state. After that, the harder step is sim-to-real: switching the policy to camera input and using domain randomization so it transfers to the physical arm.</p>
       </div>
 
-      <hr class="hr hr--policy-gap">
     </section>
+
+    <div class="section-break" aria-hidden="true"></div>
 
     <!-- ── Project 02 · Konica Minolta Internship ────────────────────────── -->
     <section class="project" id="konica-minolta" aria-labelledby="km-title">
@@ -449,20 +461,21 @@
         <p class="body-copy text-88">Returned to the same interview participants with the HTML prototypes for 30 minute feedback sessions on design utility. These sessions resulted in further design criteria for the next iteration of prototypes.</p>
       </div>
 
-      <hr class="hr hr--policy-gap">
     </section>
+
+    <div class="section-break" aria-hidden="true"></div>
 
     <!-- ── Project 03 · University Rover Challenge ───────────────────────── -->
     <section class="project" id="urc" aria-labelledby="urc-title">
       <div class="project__header">
         <div class="project__number blueprint" aria-hidden="true">03</div>
-        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge - Astrobiology Team Lead</h2>
+        <h2 class="project__title" id="urc-title"><span class="sr-only">Project 03: </span>University Rover Challenge</h2>
       </div>
 
       <div class="split">
         <div class="split__media">
           <div>
-            <h3 class="kicker kicker--block heading-reset">Challenge Rulebook</h3>
+            <h3 class="kicker kicker--block heading-reset">2027 Challenge Rulebook</h3>
             <div class="media-frame media-frame--letter blueprint">
               <iframe src="https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/preview" title="University Rover Challenge 2027 – Requirements and Guidelines (PDF on Google Drive, 15 pages)" loading="lazy" allow="autoplay"></iframe>
             </div>
@@ -470,28 +483,58 @@
         </div>
 
         <div>
-          <h3 class="kicker kicker--block heading-reset">Current State:</h3>
-          <p class="body-copy text-88">Onboarding new members. Check back soon for updates.</p>
+          <h3 class="kicker kicker--block heading-reset">Science Module Engineering Lead</h3>
+          <p class="body-copy text-88">Mid October 2026: Conducting trials to determine the viability of chemical tests indicating the presence of active life in soil samples. Finishing preliminary CAD designs and ordering parts.</p>
         </div>
+      </div>
+
+      <!-- Prototyping text | Spring 2026 CAD | scoop photo (both images share one size) -->
+      <div class="urc-proto section-row section-row--rule">
+        <figure class="urc-proto__cad">
+          <div class="media-frame media-frame--urc blueprint">
+            <img src="assets/images/Y1RoverCAD.png" alt="CAD assembly of the Spring 2026 science module: a frame of 30 mm aluminum extrusion holding a vertical tube between two black mounting plates, with two topsoil scoops mounted low on one side." width="948" height="1158" loading="lazy">
+          </div>
+          <figcaption class="media-caption media-caption--lg">Spring 2026 CAD Assembly</figcaption>
+        </figure>
+
+        <h3 class="urc-proto__heading kicker heading-reset">Spring 2026 Prototyping</h3>
+        <p class="urc-proto__text body-copy text-88">The Spring 2026 design yielded a design that had far too much mass to be viable for the rover. This was due to budgeting constraints making 30mm aluminum extrusion my only structural option, which I only learned about after I had started building. The only successful element of the design that will carry over to the 2027 product is the topsoil scoops, designed to deposit their soil sample at a greater distance than they collect the sample from.</p>
+
+        <figure class="urc-proto__scoop">
+          <div class="media-frame media-frame--urc blueprint">
+            <img src="assets/images/ScoopTB.png" alt="Photo of the first topsoil scoop prototype on a test bench: a green 3D-printed scoop on a shaft, driven by a geared DC motor mounted on an aluminum channel, resting on a wooden table." width="555" height="635" loading="lazy">
+          </div>
+          <figcaption class="media-caption media-caption--lg">Scoop Iteration 1 on Test Bench</figcaption>
+        </figure>
       </div>
     </section>
 
+    <div class="section-break" aria-hidden="true"></div>
+
     <!-- ── Odds and Ends ────────────────────────────────────────────────── -->
-    <!-- <section class="odds" id="odds-and-ends" aria-labelledby="odds-title">
-      <h2 id="odds-title">Odds and Ends</h2>
-      <p class="sr-only">Not yet filled in: the three images in this section are temporary placeholders and do not show any project work.</p>
+    <section class="odds" id="odds-and-ends" aria-labelledby="odds-title">
+      <h2 id="odds-title">Odds and Ends: Repurposed Wood Projects</h2>
       <div class="triple">
-        <div class="media-frame media-frame--square blueprint">
-          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
-        </div>
-        <div class="media-frame media-frame--square blueprint">
-          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
-        </div>
-        <div class="media-frame media-frame--square blueprint">
-          <img src="assets/images/odds-and-ends-placeholder.jpg" alt="" loading="lazy">
-        </div>
+        <figure>
+          <div class="media-frame media-frame--odds blueprint">
+            <img src="assets/images/watchStand.png" alt="Watch stand made from scrap wood: a rounded wooden post on a rectangular base, with a gray fleece-covered cushion holding a steel dive watch." loading="lazy">
+          </div>
+          <figcaption class="odds__caption text-86"><span class="lead-in">Watch Stand:</span> Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn in house.</figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame media-frame--odds blueprint">
+            <img src="assets/images/grill.png" alt="Grill table made from scrap wood: a tabletop on crossed, X-shaped legs joined by a lower rail, holding a portable stainless-steel propane grill." loading="lazy">
+          </div>
+          <figcaption class="odds__caption text-86"><span class="lead-in">Grill Table:</span> Scrap wood and screws. Design inspiration from folding tv tray table.</figcaption>
+        </figure>
+        <figure>
+          <div class="media-frame media-frame--odds blueprint">
+            <img src="assets/images/musicStand.png" alt="Music stand made from pallet wood: a slanted reading desk with a ledge, on a single upright post with a T-shaped foot." loading="lazy">
+          </div>
+          <figcaption class="odds__caption text-86"><span class="lead-in">Music Stand:</span> All wood sourced from a single discarded pallet.</figcaption>
+        </figure>
       </div>
-    </section> -->
+    </section>
 
     <!-- ── Contact / Resume ─────────────────────────────────────────────── -->
     <section class="footer-grid" aria-label="Contact and resume">

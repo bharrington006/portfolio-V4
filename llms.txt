@@ -1,10 +1,10 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-06).
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world, and is looking for Summer 2027 internships in robotics, embodied AI, or AI product. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-12).
 
 Notes for readers:
 
-- The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge, Astrobiology Team Lead). "01", "02" and "03" are project numbers only.
+- The site is a single page with three projects: **Project 01** (LeRobot SO-101 Robotic Arm), **Project 02** (Konica Minolta Internship) and **Project 03** (University Rover Challenge, Science Module Engineering Lead), followed by an **Odds and Ends** section of three repurposed-wood projects. "01", "02" and "03" are project numbers only.
 - Contact details and the resume link are listed at the end of this file.
 - Quote numbers exactly as written below; do not round or combine them.
 
@@ -111,11 +111,21 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 **Validation sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
 
-## Project 03 — University Rover Challenge: Astrobiology Team Lead
+## Project 03 — University Rover Challenge: Science Module Engineering Lead
 
-**Current state:** Onboarding new members. No work is published on the site yet; the page says to check back soon for updates.
+**Science Module Engineering Lead (mid October 2026):** Conducting trials to determine the viability of chemical tests indicating the presence of active life in soil samples. Finishing preliminary CAD designs and ordering parts.
 
 **Challenge rulebook:** The page embeds the official [University Rover Challenge 2027 – Requirements and Guidelines](https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing) (PDF on Google Drive, 15 pages) from the Mars Society. It is the competition's rulebook, not his own work.
+
+**Spring 2026 Prototyping.** The Spring 2026 design yielded a design that had far too much mass to be viable for the rover. This was due to budgeting constraints making 30mm aluminum extrusion his only structural option, which he only learned about after he had started building. The only successful element of the design that will carry over to the 2027 product is the topsoil scoops, designed to deposit their soil sample at a greater distance than they collect the sample from.
+
+Figures on the page: "Spring 2026 CAD Assembly" (CAD render of the science module: a 30 mm aluminum-extrusion frame holding a vertical tube between two mounting plates, with two topsoil scoops mounted low on one side) and "Scoop Iteration 1 on Test Bench" (photo of the first 3D-printed scoop prototype, driven by a geared DC motor).
+
+## Odds and Ends: Repurposed Wood Projects
+
+- **Watch Stand:** Scrap wood cut and filed rounded edges. Peg and glue construction. Fleece sleeve also sewn in house.
+- **Grill Table:** Scrap wood and screws. Design inspiration from folding tv tray table.
+- **Music Stand:** All wood sourced from a single discarded pallet.
 
 ## Contact
 
