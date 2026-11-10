@@ -49,7 +49,7 @@ a:hover { color: var(--color-accent-700); }
   clip-path: inset(50%);
   white-space: nowrap;
   border: 0;
-  text-transform: none; /* don't inherit a kicker's uppercase — IDs like "block_in_box" must stay exact */
+  text-transform: none; /* never inherit an uppercase parent — IDs like "block_in_box" must stay exact */
 }
 
 /* Real headings (h2–h4) and figcaptions that wear a label style (.kicker,
@@ -188,7 +188,6 @@ a:hover { color: var(--color-accent-700); }
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
   color: color-mix(in srgb, var(--color-text) 50%, transparent);
 }
 .media-caption--lg { font-size: 15px; }
@@ -249,12 +248,6 @@ a:hover { color: var(--color-accent-700); }
   letter-spacing: -0.015em;
 }
 
-/* Left-column media stack: figure + per-policy link buttons */
-.split__media {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-}
 .policy-links__row {
   display: flex;
   flex-wrap: wrap;
@@ -279,6 +272,18 @@ a:hover { color: var(--color-accent-700); }
   align-items: start;
 }
 .section-row--tight { margin-top: 24px; }
+
+/* URC intro: rulebook | auger test bench | 2027 design plan */
+.urc-intro {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  align-items: start;
+}
+.urc-intro .body-copy + .body-copy { margin-top: 14px; }
+.urc-intro__subhead { margin-top: 24px; }
+/* Rulebook fills its column, and matches the auger drawing's shape so the two line up */
+.urc-intro .media-frame--letter { width: 100%; aspect-ratio: 1058 / 1511; }
 
 /* URC Spring 2026: CAD on the left; heading, then text | photo, on the right */
 .urc-proto {
@@ -393,13 +398,12 @@ a:hover { color: var(--color-accent-700); }
   letter-spacing: 0.01em;
 }
 
-/* Section labels: uppercase condensed, accent or muted */
+/* Section labels: condensed, accent or muted */
 .kicker {
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 20px;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--color-accent-700);
 }
 .kicker--muted { color: var(--color-neutral-700); }
@@ -432,7 +436,6 @@ a:hover { color: var(--color-accent-700); }
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
 }
 .figure-label__num   { color: var(--color-accent-700); white-space: nowrap; }
 .figure-label__title { color: var(--color-neutral-700); }
@@ -499,7 +502,6 @@ a:hover { color: var(--color-accent-700); }
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
   color: color-mix(in srgb, var(--color-text) 55%, transparent);
 }
 .map__head-label--accent { color: var(--color-accent-700); }
@@ -592,12 +594,6 @@ a:hover { color: var(--color-accent-700); }
   .km__title { white-space: nowrap; }
 }
 
-/* URC: the left column is exactly as wide as the 70% rulebook, so the text sits beside it */
-@media (min-width: 1121px) {
-  .split--rulebook { grid-template-columns: minmax(0, 7fr) minmax(0, 13fr); }
-  .split--rulebook .media-frame--letter { width: 100%; }
-}
-
 @media (max-width: 1120px) {
   .split,
   .km { grid-template-columns: minmax(0, 1fr); gap: 32px; }
@@ -606,6 +602,8 @@ a:hover { color: var(--color-accent-700); }
   .triple { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .so101-cams { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px; }
   .so101-cams > :first-child { grid-column: 1 / -1; }
+  .urc-intro { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .urc-intro > :last-child { grid-column: 1 / -1; }
   .urc-proto {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-areas: "head head" "text text" "cad scoop";
@@ -625,6 +623,7 @@ a:hover { color: var(--color-accent-700); }
   .site-header__updated { display: none; }
   .footer-grid { grid-template-columns: minmax(0, 1fr); }
   .so101-cams { grid-template-columns: minmax(0, 1fr); }
+  .urc-intro { grid-template-columns: minmax(0, 1fr); }
   .urc-proto { grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "text" "cad" "scoop"; }
   .section-row { margin-top: 32px; }
   .section-row--tight { margin-top: 24px; }

@@ -11,9 +11,11 @@ content updates since.
   dataset and data-analysis spreadsheet (a separate Google Sheet per policy).
 - **Project 02 — Konica Minolta Internship:** process steps, Venn diagram (Figure 2.1),
   and the design story (always visible).
-- **Project 03 — University Rover Challenge:** the 2027 rulebook embedded from Google Drive,
-  and a "Current State" note.
-- **Contact / Resume cards.** Odds and Ends is commented out in `index.html`.
+- **Project 03 — University Rover Challenge:** a three-column row (2027 rulebook embedded
+  from Google Drive | auger test bench CAD | 2027 design and test plan), then Spring 2026
+  prototyping.
+- **Odds and Ends:** three repurposed-wood projects with captions.
+- **Contact / Resume cards.**
 
 ## Structure
 
@@ -29,6 +31,7 @@ assets/favicon.png, apple-touch-icon.png
 assets/images/baxter-harrington-headshot.webp
 assets/images/V2Camera.png, V3Camera.png, V3Test.png      SO-101 camera mounts + Policy 2 start-position plot
 assets/images/Y1RoverCAD.png, ScoopTB.png              URC Spring 2026 CAD + scoop test bench
+assets/images/AugerBench.png                           URC auger test bench CAD
 assets/images/watchStand.png, grill.png, musicStand.png  Odds and Ends tiles
 assets/video/so101-policy2-v3-rollout-demo.mp4  SO-101 Policy 2 (V3) demo
 assets/video/rollout_block_in_box_v3_ep21.mp4   SO-101 Policy 2 evaluation episode 21

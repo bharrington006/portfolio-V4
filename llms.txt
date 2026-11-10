@@ -1,6 +1,6 @@
 # Baxter Harrington — Portfolio
 
-> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world, and is looking for Summer 2027 internships in robotics, embodied AI, or AI product. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-10-13).
+> Portfolio of Baxter Harrington, a student of Mechanical Engineering and Human-Computer Interaction at Washington University in St. Louis (WashU), class of 2028. He is especially interested in how AI is moving into the physical world, and is looking for Summer 2027 internships in robotics, embodied AI, or AI product. This file is a complete plain-text copy of https://baxterharrington.com/ (last updated 2026-11-10).
 
 Notes for readers:
 
@@ -29,13 +29,13 @@ Notes for readers:
 
 **Policy 2.** He designed and fabricated a new camera mount with a more overhead view of the workspace. The overhead angle reduces how much the policy depends on depth estimation, and it puts more of the workspace in frame.
 
-Figures on the page: "Camera Mount System for Policy 1" and "Camera Mount System for Policy 2" (CAD side views of the two mounts and their fields of view), and a plot titled "Policy 2 evaluation: start positions by outcome" (block start positions over an overhead photo; green = success, red = failure; circles = episodes 0–40, black-bordered squares = episodes 41–49, gray dots = training-dataset positions).
+Figures on the page: "Camera Mount System For Policy 1" and "Camera Mount System For Policy 2" (CAD side views of the two mounts and their fields of view), and a plot titled "Policy 2 evaluation: start positions by outcome" (block start positions over an overhead photo; green = success, red = failure; circles = episodes 0–40, black-bordered squares = episodes 41–49, gray dots = training-dataset positions).
 
-**New failure mode: failures concentrate at and beyond the edge of the training data.** With this stronger policy, he tested how it would perform when the block was outside the area it was trained on. In episodes 41–49, he deliberately placed the block next to the box (the black-bordered squares). Policy 2 succeeded in only 1 of those 9 trials. Another outlier is episode 21, which sits completely outside of every training demonstration. As the episode 21 video on the page shows, the arm never reaches beyond the area covered in training and misses the block entirely, even though the arm is physically able to reach the block.
+**New Failure Mode: failures concentrate at and beyond the edge of the training data.** With this stronger policy, he tested how it would perform when the block was outside the area it was trained on. In episodes 41–49, he deliberately placed the block next to the box (the black-bordered squares). Policy 2 succeeded in only 1 of those 9 trials. Another outlier is episode 21, which sits completely outside of every training demonstration. As the episode 21 video on the page shows, the arm never reaches beyond the area covered in training and misses the block entirely, even though the arm is physically able to reach the block.
 
-**Note on sample size:** Each policy was tested on 41–50 trials, so these rates carry roughly ±13 percentage points of uncertainty.
+**Note On Sample Size:** Each policy was tested on 41–50 trials, so these rates carry roughly ±13 percentage points of uncertainty.
 
-Videos on the page: "Policy demo: observational view (not the webcam used in policy)", showing Policy 2 doing the task, filmed from an observer camera rather than the camera the policy uses; and "Policy 2, evaluation episode 21".
+Videos on the page: "Policy Demo: Observational View (Not The Webcam Used In Policy)", showing Policy 2 doing the task, filmed from an observer camera rather than the camera the policy uses; and "Policy 2, Evaluation Episode 21".
 
 Links:
 
@@ -45,7 +45,7 @@ Links:
 - [Policy 2 evaluation rollouts: rollout_block_in_box_v3_20260914_215923](https://huggingface.co/datasets/bwharrington/rollout_block_in_box_v3_20260914_215923): Hugging Face dataset (labelled "Dataset" under "Policy 2").
 - [Policy 2 data analysis spreadsheet](https://docs.google.com/spreadsheets/d/1Z3A8Hdwt_su-AWOqkQHOaob4Odb1xhamAwNoL0mdBCo/edit?usp=sharing): Google Sheets (labelled "Data Analysis" under "Policy 2").
 
-**Next steps:** Every improvement so far has required teleoperating more demonstrations by hand, and that is now the bottleneck. Training models in simulation will allow orders of magnitude more data points, covering the whole workspace. He is building a MuJoCo simulation of the SO-101 wrapped in a custom Gymnasium environment. The first goal is a PPO policy (Stable-Baselines3) trained in simulation with the block's position given directly as state. After that, the harder step is sim-to-real: switching the policy to camera input and using domain randomization so it transfers to the physical arm.
+**Next Steps:** Every improvement so far has required teleoperating more demonstrations by hand, and that is now the bottleneck. Training models in simulation will allow orders of magnitude more data points, covering the whole workspace. He is building a MuJoCo simulation of the SO-101 wrapped in a custom Gymnasium environment. The first goal is a PPO policy (Stable-Baselines3) trained in simulation with the block's position given directly as state. After that, the harder step is sim-to-real: switching the policy to camera input and using domain randomization so it transfers to the physical arm.
 
 ## Project 02 — Konica Minolta Internship: Experience Design with Agentforce
 
@@ -67,7 +67,7 @@ Links:
 
 Four 1-hour discovery interviews with individuals across three business units. The interviews were conversational and used the Jobs-to-be-Done framework to understand current workflows and pain points. The goal was to design around how the sales reps actually work, not how the team assumed they would use the new Agentforce platform.
 
-### Figure 2.1: Jobs identified through interviews (three-circle Venn diagram)
+### Figure 2.1: Jobs Identified Through Interviews (three-circle Venn diagram)
 
 | Region | Jobs |
 |---|---|
@@ -81,7 +81,7 @@ Four 1-hour discovery interviews with individuals across three business units. T
 
 ### Design story
 
-**Designing & prototyping.** The first step was to gather and analyze the interview data. This produced a long list of jobs and their scope across the three business units, which he organized into the Venn diagram in Figure 2.1. To get the most value, he focused on the jobs shared by all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. He mapped these shared jobs onto Agentforce solutions that could increase efficiency and, in some cases, improve output quality.
+**Designing & Prototyping.** The first step was to gather and analyze the interview data. This produced a long list of jobs and their scope across the three business units, which he organized into the Venn diagram in Figure 2.1. To get the most value, he focused on the jobs shared by all three business units: account prep, worklist construction, cross-functional troubleshooting, and document synthesis. He mapped these shared jobs onto Agentforce solutions that could increase efficiency and, in some cases, improve output quality.
 
 **Figure 2.2: Shared jobs mapped to Agentforce agents**
 
@@ -92,9 +92,9 @@ Four 1-hour discovery interviews with individuals across three business units. T
 | 3. Cross-functional troubleshooting | 15–50 min per billing issue, with no authority to fix it | A3 · Workflow Orchestration | Triage, route, guard, escalate |
 | 4. Document synthesis | 5–15 decks a week, system data retyped by hand | A4 · Artifact Synthesis | Drafts only, behind a QA gate |
 
-**A1 in focus: Account Intelligence.** After identifying the agents to design, he focused on agent A1. It puts an account summary directly on the Salesforce account landing page, pulling the specific metrics end users asked for in discovery so they get the most useful view. The interviews showed that an agent like this would save each sales rep more than 20 minutes before each account contact point, which adds up to as much as 4 hours of prep time per person every week. It also evaluates every account against the same criteria, which removes the variability that comes when analysis quality depends on a rep's time, attention or experience. To build the optimized account brief view, additional agents pull service history from a customer's devices and data from systems outside Salesforce.
+**A1 In Focus: Account Intelligence.** After identifying the agents to design, he focused on agent A1. It puts an account summary directly on the Salesforce account landing page, pulling the specific metrics end users asked for in discovery so they get the most useful view. The interviews showed that an agent like this would save each sales rep more than 20 minutes before each account contact point, which adds up to as much as 4 hours of prep time per person every week. It also evaluates every account against the same criteria, which removes the variability that comes when analysis quality depends on a rep's time, attention or experience. To build the optimized account brief view, additional agents pull service history from a customer's devices and data from systems outside Salesforce.
 
-**A1 subagents** (the five sub-agents that make up agent A1):
+**A1 Subagents** (the five sub-agents that make up agent A1):
 
 - BU 1 Account Brief (the account brief view for Business Unit 1)
 - BU 2 Account Brief (the account brief view for Business Unit 2)
@@ -102,24 +102,31 @@ Four 1-hour discovery interviews with individuals across three business units. T
 - Service History Q&A
 - Cross-System Answers
 
-**UX rules identified**
+**UX Rules Identified**
 
-- **Push, don't pull:** People said the most impactful and useful tools are the ones that get pushed to their dashboards automatically.
-- **One agent, three views:** Each business unit wanted a different view of the same core data. So a single agent with individualized sub-agents should be used, all grounded in the same data.
+- **Push, Don't Pull:** People said the most impactful and useful tools are the ones that get pushed to their dashboards automatically.
+- **One Agent, Three Views:** Each business unit wanted a different view of the same core data. So a single agent with individualized sub-agents should be used, all grounded in the same data.
 
 **Prototyping.** He used Claude Design to build detailed HTML prototypes so end users could see accurately what the shipped agent's experience would be like. This fast prototyping process let him create an individualized view for each business unit.
 
-**Validation sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
+**Validation Sessions.** He took the HTML prototypes back to the same interview participants for 30-minute feedback sessions on design utility. These sessions produced more design criteria for the next round of prototypes.
 
 ## Project 03 — University Rover Challenge: Science Module Engineering Lead
 
-**Science Module Engineering Lead (mid October 2026):** Conducting trials to determine the viability of chemical tests indicating the presence of active life in soil samples. Finishing preliminary CAD designs and ordering parts.
+**2027 Challenge Rulebook:** The page embeds the official [University Rover Challenge 2027 – Requirements and Guidelines](https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing) (PDF on Google Drive, 15 pages) from the Mars Society. It is the competition's rulebook, not his own work.
 
-**Challenge rulebook:** The page embeds the official [University Rover Challenge 2027 – Requirements and Guidelines](https://drive.google.com/file/d/1MDtePza5F8zMDjFkzAY1fOXAQskmaN2U/view?usp=sharing) (PDF on Google Drive, 15 pages) from the Mars Society. It is the competition's rulebook, not his own work.
+Figure: "Auger Test Bench Design In SolidWorks" (line drawing of a vertical auger with a cutting tip, held by brackets on an upright post, positioned to drill down into an open-top box of soil).
+
+**2027 Design Plan:** Currently finishing the preliminary CAD design for the complete soil collection and testing module. The next step is ordering parts and using the auger test bench to develop consistent extraction from 10 cm below the soil surface.
+
+**Test Plan:** The goal of the science mission is to determine whether life forms, mainly microorganisms, are present at the testing sites.
+
+1. **Catalase test.** Catalase is an enzyme found in living things, and it breaks down hydrogen peroxide. The team will add hydrogen peroxide to the soil sample, then use a developer containing iodide and starch to measure the unreacted hydrogen peroxide with a spectrometer after its reaction with the soil.
+2. **Chlorophyll test.** Detects chlorophyll by its emission of red light when excited by blue light. Chlorophyll is produced by green algae and lichen photobionts, which the [Biodiversity Data Journal](https://bdj.pensoft.net/articles.php?id=8176) has identified at the competition site.
 
 **Spring 2026 Prototyping.** The Spring 2026 design yielded a design that had far too much mass to be viable for the rover. This was due to budgeting constraints making 30mm aluminum extrusion his only structural option, which he only learned about after he had started building. The only successful element of the design that will carry over to the 2027 product is the topsoil scoops, designed to deposit their soil sample at a greater distance than they collect the sample from.
 
-Figures on the page: "Spring 2026 CAD Assembly" (CAD render of the science module: a 30 mm aluminum-extrusion frame holding a vertical tube between two mounting plates, with two topsoil scoops mounted low on one side) and "Scoop Iteration 1 on Test Bench" (photo of the first 3D-printed scoop prototype, driven by a geared DC motor).
+Figures on the page: "Spring 2026 CAD Assembly" (CAD render of the science module: a 30 mm aluminum-extrusion frame holding a vertical tube between two mounting plates, with two topsoil scoops mounted low on one side) and "Scoop Iteration 1 On Test Bench" (photo of the first 3D-printed scoop prototype, driven by a geared DC motor).
 
 ## Odds and Ends: Repurposed Wood Projects
 
